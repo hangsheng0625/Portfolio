@@ -100,7 +100,7 @@ const AboutMe = () => {
                     <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-lg shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
                       <Image
                         src={tool}
-                        alt={tool.name}
+                        alt=''
                         width={20}
                         height={20}
                         className="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300"
