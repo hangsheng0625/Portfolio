@@ -16,6 +16,10 @@ module.exports = {
         outfit: ["Outfit", "sans-serif"],  // Remove CSS variables
         ovo: ["Ovo", "serif"],            // Use direct font names
       },
+      boxShadow: {
+        'black' : '4px 4px 0 #000',
+        'white' : '4px 4px 0 #fff',
+      }
     },
   },
   plugins: [],
