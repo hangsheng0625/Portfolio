@@ -1,10 +1,10 @@
-'use client';
 import Navbar from "@/components/Navbar";
+import Background from "@/components/Background";
 
 export default function Home() {
-
   return (
     <>
+      <Background />
       <Navbar />
     </>
   );

@@ -13,8 +13,8 @@ module.exports = {
         darkTheme: "#11001F",
       },
       fontFamily: {
-        outfit: ["var(--font-outfit)", "sans-serif"],
-        ovo: ["var(--font-ovo)", "serif"],
+        outfit: ["Outfit", "sans-serif"],  // Remove CSS variables
+        ovo: ["Ovo", "serif"],            // Use direct font names
       },
     },
   },

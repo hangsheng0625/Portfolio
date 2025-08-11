@@ -16,7 +16,7 @@ export const metadata = { title: "Portfolio", description: "" };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${outfit.variable} ${ovo.variable} font-outfit antialiased`}>
         {children}
       </body>
