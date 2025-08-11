@@ -1,27 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
+  weight: ["400","500","600","700"],
+  variable: "--font-outfit",
+});
+const ovo = Ovo({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ovo",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: "Portfolio",
-  description: "",
-};
+export const metadata = { title: "Portfolio", description: "" };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} ${ovo.variable} font-outfit antialiased`}>
         {children}
       </body>
     </html>
