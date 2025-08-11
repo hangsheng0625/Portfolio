@@ -1,110 +1,69 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { assets } from '@/assets/assets';
 
+// Navigation links
+const navLinks = [
+  { label: 'Home', href: '#top' },
+  { label: 'About me', href: '#about' },
+  { label: 'My Work', href: '#projects' },
+  { label: 'Contact me', href: '#contact' }
+];
+
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState('top');
 
-  // Prevent hydration mismatch
+  // Avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Track which section is active
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 3;
+
+      let current = 'top';
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (section && section.offsetTop <= scrollPos) {
+          current = link.href.substring(1);
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Toggle theme
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    // Add your theme switching logic here
-    if (mounted) {
-      document.documentElement.classList.toggle('dark');
-    }
+    if (!mounted) return;
+    setIsDarkMode((prev) => !prev);
+    document.documentElement.classList.toggle('dark');
   };
 
+  // Toggle mobile menu
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
-
-  const navLinks = [
-    { label: "Home", href: "#top" },
-    { label: "About me", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "My Work", href: "#projects" },
-    { label: "Contact me", href: "#contact" }
-  ];
-
-  // Don't render interactive elements until mounted
-  if (!mounted) {
-    return (
-      <nav className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center py-3 w-full">
-            {/* Logo */}
-            <a href="#top" className="flex items-center shrink-0 mr-10">
-              <Image
-                src={assets.logo}
-                alt="Logo"
-                width={128}
-                height={32}
-                className="h-8 w-auto"
-                priority
-                style={{ width: 'auto', height: '32px' }}
-              />
-            </a>
-
-            {/* Desktop Navigation Links */}
-            <ul className="hidden md:flex flex-1 justify-center items-center space-x-10 text-sm font-ovo">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a 
-                    href={link.href} 
-                    className="text-darkTheme hover:text-neutral-700 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Static Right Actions */}
-            <div className="flex items-center gap-4 shrink-0">
-              <div className="p-2 hover:bg-neutral-100 rounded-full transition-colors">
-                <Moon className="w-5 h-5 text-neutral-700" />
-              </div>
-              
-              <a
-                href="#contact"
-                className="hidden sm:inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
-              >
-                Contact
-                <Image
-                  src={assets.arrow_icon}
-                  alt=""
-                  width={12}
-                  height={12}
-                  className="w-3 h-3"
-                  style={{ width: '12px', height: '12px' }}
-                />
-              </a>
-
-              <div className="p-2 hover:bg-neutral-100 rounded-full md:hidden transition-colors">
-                <Menu className="w-5 h-5 text-neutral-700" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center py-3 w-full">
+        <div className="flex items-center justify-between py-3 w-full">
           
           {/* Logo */}
-          <a href="#top" className="flex items-center shrink-0 mr-10">
+          <a href="#top" className="flex items-center shrink-0">
             <Image
               src={assets.logo}
               alt="Logo"
@@ -112,54 +71,58 @@ const Navbar = () => {
               height={32}
               className="h-8 w-auto"
               priority
-              style={{ width: 'auto', height: '32px' }}
             />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <ul className="hidden md:flex flex-1 justify-center items-center space-x-10 text-sm font-ovo">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a 
-                  href={link.href} 
-                  className="text-darkTheme hover:text-neutral-700 transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+          {/* Desktop Nav Links */}
+          <ul className="hidden md:flex items-center space-x-10 text-sm font-ovo">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`transition-colors ${
+                      isActive
+                        ? 'text-black-600 font-semibold'
+                        : 'text-darkTheme hover:text-neutral-700'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Right Actions */}
           <div className="flex items-center gap-4 shrink-0">
-            
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
               aria-label="Toggle theme"
               className="p-2 hover:bg-neutral-100 rounded-full transition-colors"
             >
-              {isDarkMode ? (
+              {mounted && isDarkMode ? (
                 <Sun className="w-5 h-5 text-neutral-700" />
               ) : (
                 <Moon className="w-5 h-5 text-neutral-700" />
               )}
             </button>
 
-            {/* Contact Button (Hidden on Mobile) */}
+            {/* Contact Button (Desktop) */}
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
             >
-              Contact
+              CV
               <Image
                 src={assets.arrow_icon}
                 alt=""
                 width={12}
                 height={12}
                 className="w-3 h-3"
-                style={{ width: '12px', height: '12px' }}
               />
             </a>
 
@@ -168,6 +131,8 @@ const Navbar = () => {
               type="button"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
               className="p-2 hover:bg-neutral-100 rounded-full md:hidden transition-colors"
             >
               {isMobileMenuOpen ? (
@@ -180,41 +145,58 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-neutral-200 bg-white">
-            <ul className="py-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-6 py-3 text-darkTheme hover:text-neutral-700 hover:bg-neutral-50 transition-colors font-ovo"
+        <div
+          id="mobile-menu"
+          className={`md:hidden bg-white border-t border-neutral-200 transition-all duration-300 overflow-hidden ${
+            isMobileMenuOpen ? 'max-h-[500px]' : 'max-h-0'
+          }`}
+        >
+          <div className="py-2">
+            <ul>
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.substring(1);
+                return (
+                  <li
+                    key={link.href}
+                    className="text-center border-b border-neutral-200 last:border-b-0"
                   >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              {/* Mobile Contact Button */}
-              <li className="px-6 py-3">
-                <a
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors w-full justify-center"
-                >
-                  Contact
-                  <Image
-                    src={assets.arrow_icon}
-                    alt=""
-                    width={12}
-                    height={12}
-                    className="w-3 h-3"
-                    style={{ width: '12px', height: '12px' }}
-                  />
-                </a>
-              </li>
+                    <a
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block py-4 px-6 transition-colors font-ovo text-lg ${
+                        isActive
+                          ? 'text-black-600 font-semibold'
+                          : 'text-darkTheme hover:text-neutral-700 hover:bg-neutral-50'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
+            
+            <div className="border-t border-neutral-300 mx-6 my-4"></div>
+            
+            {/* Mobile Contact Button */}
+            <div className="flex justify-center px-6 pb-4">
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
+              >
+                CV
+                <Image
+                  src={assets.arrow_icon}
+                  alt=""
+                  width={12}
+                  height={12}
+                  className="w-3 h-3"
+                />
+              </a>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
