@@ -9,7 +9,7 @@ import { assets } from '@/assets/assets';
 const navLinks = [
   { label: 'Home', href: '#top' },
   { label: 'About me', href: '#about' },
-  { label: 'My Work', href: '#projects' },
+  { label: 'My Projects', href: '#projects' },
   { label: 'Contact me', href: '#contact' }
 ];
 
