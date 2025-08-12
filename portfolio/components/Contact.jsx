@@ -2,35 +2,12 @@
 import React from "react";
 import { useState } from "react";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
   Github,
   Linkedin,
   Instagram,
 } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-  };
 
   return (
     <section id="contact" className="py-16 px-6 lg:px-10">
