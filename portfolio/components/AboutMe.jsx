@@ -1,6 +1,20 @@
-import { assets, infoList, toolsData } from "@/assets/assets";
+import { assets, infoList, toolsData, techStackData } from "@/assets/assets";
 import React from "react";
 import Image from "next/image";
+
+// Component to render Simple Icons SVG
+const SimpleIconSVG = ({ icon, className = "w-5 h-5" }) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d={icon.path} />
+    </svg>
+  );
+};
 
 const AboutMe = () => {
   return (
@@ -17,7 +31,6 @@ const AboutMe = () => {
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-6xl mx-auto">
-
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
           <p className="text-gray-600 dark:text-gray-400 mb-8 text-base leading-relaxed">
@@ -76,44 +89,90 @@ const AboutMe = () => {
             ))}
           </div>
 
-          {/* Tools Section */}
+          {/* Tech Stack Section */}
           <div className="mt-12">
-            <h4 className="text-center text-xl font-bold mb-8 font-ovo text-darkTheme dark:text-white">
-              Tools I Use
+            <h4 className="text-center text-2xl font-bold mb-8 font-ovo text-darkTheme dark:text-white">
+              Tech Stack
             </h4>
 
-            {/* Tools Cards Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4">
-              {toolsData.map((tool, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 lg:p-4 shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-lightHover dark:hover:bg-gray-600 group hover:rotate-2"
-                >
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    {/* Tool Icon */}
-                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white dark:bg-gray-600 rounded-lg shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
-                      <Image
-                        src={tool}
-                        alt=""
-                        width={20}
-                        height={20}
-                        className="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300"
-                      />
+            {/* Tech Stack Table */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+              {Object.entries(techStackData).map(
+                ([category, technologies], categoryIndex) => (
+                  <div
+                    key={category}
+                    className={`${
+                      categoryIndex !== 0
+                        ? "border-t border-gray-200 dark:border-gray-700"
+                        : ""
+                    }`}
+                  >
+                    <div className="flex flex-col lg:flex-row">
+                      {/* Category Label */}
+                      <div className="lg:w-1/4 bg-gray-50 dark:bg-gray-900 px-6 py-4 flex items-center">
+                        <h5 className="font-semibold text-gray-700 dark:text-gray-300 text-sm lg:text-base">
+                          {category}
+                        </h5>
+                      </div>
+
+                      {/* Technologies */}
+                      <div className="lg:w-3/4 px-6 py-4">
+                        <div className="flex flex-wrap gap-3">
+                          {technologies.map((tech, techIndex) => (
+                            <div
+                              key={techIndex}
+                              className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 group cursor-pointer"
+                            >
+                              {/* Icon - Handle custom images, simple-icons SVG, and emoji */}
+                              {typeof tech.icon === "string" ? (
+                                tech.icon.startsWith("/") ? (
+                                  // Custom image from public folder
+                                  <div className="w-5 h-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                                    <Image
+                                      src={tech.icon}
+                                      alt={tech.name}
+                                      width={20}
+                                      height={20}
+                                      className="w-5 h-5 object-contain"
+                                    />
+                                  </div>
+                                ) : (
+                                  // Emoji fallback
+                                  <span className="text-lg group-hover:scale-110 transition-transform duration-200">
+                                    {tech.icon}
+                                  </span>
+                                )
+                              ) : tech.icon?.path ? (
+                                // Simple-icons SVG
+                                <div className="w-5 h-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-200 text-gray-600 dark:text-gray-400">
+                                  <SimpleIconSVG
+                                    icon={tech.icon}
+                                    className="w-5 h-5"
+                                  />
+                                </div>
+                              ) : (
+                                // Legacy image assets
+                                <div className="w-5 h-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                                  <Image
+                                    src={tech.icon}
+                                    alt={tech.name}
+                                    width={20}
+                                    height={20}
+                                    className="w-5 h-5 object-contain"
+                                  />
+                                </div>
+                              )}
+                              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
+                                {tech.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Tool Name */}
-                    <span className="text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300 leading-tight">
-                      {tool.name}
-                    </span>
                   </div>
-
-                  {/* Animated border effect */}
-                  <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
         </div>
