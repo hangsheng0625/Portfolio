@@ -7,12 +7,12 @@ const AboutMe = () => {
     <div className="py-16 px-6 lg:px-10">
       <h4
         id="about"
-        className="text-center text-2xl font-bold mb-4 font-ovo text-darkTheme"
+        className="text-center text-2xl font-bold mb-4 font-ovo text-darkTheme dark:text-white"
       >
         Introduction
       </h4>
 
-      <h2 className="text-center font-ovo text-lg mb-12 text-darkTheme">
+      <h2 className="text-center font-ovo text-lg mb-12 text-darkTheme dark:text-gray-200">
         About Me
       </h2>
 
@@ -32,7 +32,7 @@ const AboutMe = () => {
 
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
-          <p className="text-gray-600 mb-8 text-base leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 text-base leading-relaxed">
             I am a passionate web developer with a focus on creating interactive
             and user-friendly experiences. My journey in web development began
             with a fascination for how websites work and the technologies behind

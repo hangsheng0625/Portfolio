@@ -3,6 +3,14 @@
 /* Base font (Outfit). Individual elements can override with font-ovo */
 body {
   font-family: var(--font-outfit), sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode text color */
+.dark body {
+  color: #f9fafb;
 }
 
 /* Floating animation for social icons */

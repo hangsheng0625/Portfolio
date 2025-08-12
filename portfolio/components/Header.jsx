@@ -89,18 +89,18 @@ const Header = () => {
         </div>
 
         {/* Greeting */}
-        <h3 className="text-2xl font-bold mb-4 font-ovo text-darkTheme">
+        <h3 className="text-2xl font-bold mb-4 font-ovo text-darkTheme dark:text-white">
           Hi! I am hangsheng
           <Hand className="inline-block ml-2 w-6 h-6 text-yellow-500" />
         </h3>
 
         {/* Welcome Message */}
-        <h1 className="text-lg mb-4 text-darkTheme">
+        <h1 className="text-lg mb-4 text-darkTheme dark:text-gray-200">
           Welcome to my portfolio website.
         </h1>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           I am a passionate web developer with a focus on creating interactive
           and user-friendly experiences.
         </p>
@@ -108,17 +108,9 @@ const Header = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#projects"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-darkTheme text-darkblue text-sm font-medium hover:bg-darkHover transition-colors"
-          >
-            View My Work
-            <ArrowRight className="w-4 h-4" />
-          </a>
-
-          <a
             href="/sample-resume.pdf"
             download
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gray-400 dark:border-gray-600 text-sm font-medium text-neutral-800 dark:text-gray-200 hover:bg-neutral-50 dark:hover:bg-gray-800 transition-colors"
           >
             My Resume
             <Download className="w-4 h-4" />

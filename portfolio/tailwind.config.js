@@ -13,18 +13,18 @@ module.exports = {
         darkTheme: "#11001F",
       },
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"],  // Remove CSS variables
-        ovo: ["Ovo", "serif"],            // Use direct font names
+        outfit: ["Outfit", "sans-serif"], // Remove CSS variables
+        ovo: ["Ovo", "serif"], // Use direct font names
       },
       boxShadow: {
-        'black' : '4px 4px 0 #000',
-        'white' : '4px 4px 0 #fff',
+        black: "4px 4px 0 #000",
+        white: "4px 4px 0 #fff",
       },
       gridTemplateColumns: {
-        'auto': 'repeat(auto-fit, minmax(200px, 1fr))',
+        auto: "repeat(auto-fit, minmax(200px, 1fr))",
       },
     },
   },
-  darkmode: 'selector',
+  darkMode: "class",
   plugins: [],
 };

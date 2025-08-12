@@ -8,11 +8,11 @@ const Projects = () => {
     <section id="projects" className="py-16 px-6 lg:px-10">
       {/* Section Heading */}
       <div className="text-center mb-12">
-        <h4 className="text-3xl font-bold font-ovo text-darkTheme mb-2">
+        <h4 className="text-3xl font-bold font-ovo text-darkTheme dark:text-white mb-2">
           My Projects
         </h4>
-        <h2 className="text-lg font-ovo text-darkTheme mb-4">Featured Works</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-lg font-ovo text-darkTheme dark:text-gray-200 mb-4">Featured Works</h2>
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Here are some of the projects I've worked on. Click any to explore in
           detail.
         </p>
@@ -23,7 +23,7 @@ const Projects = () => {
         {workData.map((project, index) => (
           <div
             key={index}
-            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100"
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
           >
             {/* Image Section */}
             <div className="relative h-48 overflow-hidden">

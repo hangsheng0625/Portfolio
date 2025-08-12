@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const Background = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -12,18 +13,45 @@ const Background = () => {
       });
     };
 
+    // Check for dark mode
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+
+    // Initial check
+    checkDarkMode();
+
+    // Listen for class changes on html element
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      observer.disconnect();
+    };
   }, []);
+
+  const lightBackground = "linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%)";
+  const darkBackground = "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #000000 100%)";
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"></div>
+      {/* Main background with JavaScript-controlled styling */}
+      <div 
+        className="absolute inset-0 transition-all duration-500"
+        style={{
+          background: isDarkMode ? darkBackground : lightBackground
+        }}
+      ></div>
 
       {/* Interactive mouse-following gradient */}
       <div
-        className="absolute w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl transition-all duration-1000 ease-out"
+        className="absolute w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 dark:from-blue-400/30 dark:to-purple-400/30 rounded-full blur-3xl transition-all duration-1000 ease-out"
         style={{
           left: `${mousePosition.x}%`,
           top: `${mousePosition.y}%`,
