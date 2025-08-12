@@ -98,18 +98,7 @@ const Navbar = () => {
           {/* Right Actions */}
           <div className="flex items-center gap-4 shrink-0">
             {/* Theme Toggle */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="p-2 hover:bg-neutral-100 rounded-full transition-colors"
-            >
-              {mounted && isDarkMode ? (
-                <Sun className="w-5 h-5 text-neutral-700" />
-              ) : (
-                <Moon className="w-5 h-5 text-neutral-700" />
-              )}
-            </button>
+
 
             {/* Contact Button (Desktop) */}
             <a
