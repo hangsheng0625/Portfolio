@@ -1,9 +1,19 @@
+"use client";
+
 import { workData } from "@/assets/assets";
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Projects = () => {
+  const router = useRouter();
+
+  const handleProjectClick = (slug) => {
+    router.push(`/projects/${slug}`);
+  };
+
   return (
     <section id="projects" className="py-20 px-6 lg:px-10">
       {/* Section Heading */}
@@ -35,11 +45,6 @@ const Projects = () => {
 
               {/* Subtle overlay for better image contrast */}
               <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors duration-300"></div>
-
-              {/* Arrow icon in top-right corner */}
-              <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                <ArrowRight className="w-5 h-5 text-darkTheme dark:text-white" />
-              </div>
             </div>
 
             {/* Content Section - Separate from image */}
@@ -99,13 +104,23 @@ const Projects = () => {
               {/* Action Buttons */}
               <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
                 <div className="flex items-center justify-between">
-                  <button className="inline-flex items-center gap-2 text-darkTheme dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-base transition-colors duration-300 group-hover:gap-3">
+                  <button
+                    onClick={() => handleProjectClick(project.slug)}
+                    className="inline-flex items-center gap-2 text-darkTheme dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-base transition-colors duration-300 group-hover:gap-3"
+                  >
                     View Details
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
                   {/* Quick action buttons */}
                   <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleProjectClick(project.slug)}
+                      className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                      title="View Details"
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
                     {project.githubLink && (
                       <a
                         href={project.githubLink}
@@ -156,7 +171,8 @@ const Projects = () => {
 
       {/* View All Button */}
       <div className="text-center mt-16">
-        <button
+        <Link
+          href="/projects"
           className="inline-flex items-center gap-2 px-8 py-3 
                     font-ovo text-darkTheme dark:text-white leading-tight rounded-full border-1 border-grey-400 dark:border-gray-600
                     shadow-md hover:shadow-lg
@@ -166,7 +182,7 @@ const Projects = () => {
         >
           View All Projects
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </Link>
       </div>
     </section>
   );
