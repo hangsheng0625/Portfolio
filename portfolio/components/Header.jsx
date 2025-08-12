@@ -73,7 +73,7 @@ const Header = () => {
 
             {/* Email - Bottom Right */}
             <a
-              href="mailto:hangsheng@example.com"
+              href="mailto:hangsheng279@gmail.com"
               className="absolute -bottom-4 -right-4 w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg border-4 border-white dark:border-gray-700 flex items-center justify-center hover:scale-110 transition-all duration-300 group z-10"
               style={{
                 animation: "float 6s ease-in-out infinite",
