@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 import {
-  Hand,
   ArrowRight,
   Download,
   Github,
@@ -91,7 +90,7 @@ const Header = () => {
         {/* Greeting */}
         <h1 className="text-4xl lg:text-5xl font-bold mb-6 font-ovo text-darkTheme dark:text-white leading-tight">
           Hi! I am hangsheng
-          <Hand className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500" />
+          <Image src={assets.hand_icon} className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500" />
         </h1>
 
         {/* Description */}
