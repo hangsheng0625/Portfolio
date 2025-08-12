@@ -4,3 +4,13 @@
 body {
   font-family: var(--font-outfit), sans-serif;
 }
+
+/* Floating animation for social icons */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-15px) rotate(5deg); 
+  }
+}
