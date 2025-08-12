@@ -2,7 +2,20 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Moon, Sun, Menu, X, Home, User, FolderOpen, Mail } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Menu,
+  X,
+  Home,
+  User,
+  FolderOpen,
+  Mail,
+  Github,
+  Linkedin,
+  Twitter,
+  Download,
+} from "lucide-react";
 import { assets } from "@/assets/assets";
 
 // Navigation links
@@ -84,7 +97,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-center py-5 w-full">
           {/* Desktop Nav Links - Centered */}
-          <ul className="hidden md:flex items-center space-x-10 text-sm font-ovo">
+          <ul className="hidden md:flex items-center space-x-10 text-base font-ovo">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               const IconComponent = link.icon;
