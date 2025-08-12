@@ -15,7 +15,7 @@ const Background = () => {
 
     // Check for dark mode
     const checkDarkMode = () => {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
     };
 
     // Initial check
@@ -25,27 +25,29 @@ const Background = () => {
     const observer = new MutationObserver(checkDarkMode);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class']
+      attributeFilter: ["class"],
     });
 
     window.addEventListener("mousemove", handleMouseMove);
-    
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       observer.disconnect();
     };
   }, []);
 
-  const lightBackground = "linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%)";
-  const darkBackground = "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #000000 100%)";
+  const lightBackground =
+    "linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%)";
+  const darkBackground =
+    "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #000000 100%)";
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Main background with JavaScript-controlled styling */}
-      <div 
+      <div
         className="absolute inset-0 transition-all duration-500"
         style={{
-          background: isDarkMode ? darkBackground : lightBackground
+          background: isDarkMode ? darkBackground : lightBackground,
         }}
       ></div>
 

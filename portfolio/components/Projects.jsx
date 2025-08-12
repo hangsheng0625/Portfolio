@@ -11,7 +11,9 @@ const Projects = () => {
         <h4 className="text-3xl font-bold font-ovo text-darkTheme dark:text-white mb-2">
           My Projects
         </h4>
-        <h2 className="text-lg font-ovo text-darkTheme dark:text-gray-200 mb-4">Featured Works</h2>
+        <h2 className="text-lg font-ovo text-darkTheme dark:text-gray-200 mb-4">
+          Featured Works
+        </h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Here are some of the projects I've worked on. Click any to explore in
           detail.

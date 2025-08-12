@@ -17,18 +17,6 @@ const AboutMe = () => {
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-6xl mx-auto">
-        {/* Profile Image Section */}
-        <div className="w-full lg:w-1/3 flex justify-center">
-          <div className="w-64 sm:w-80 rounded-2xl overflow-hidden shadow-lg">
-            <Image
-              src={assets.user_image}
-              alt="User Image"
-              width={320}
-              height={400}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
 
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
@@ -46,17 +34,19 @@ const AboutMe = () => {
             {infoList.map(({ icon, iconDark, title, description }, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-4 lg:p-6 shadow-md hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover group"
+                className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-6 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover dark:hover:bg-gray-700 group"
               >
                 <div className="flex flex-col items-center text-center space-y-3">
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center group-hover:from-blue-100 group-hover:to-purple-100 transition-colors duration-300">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-lg flex items-center justify-center group-hover:from-blue-100 group-hover:to-purple-100 dark:group-hover:from-blue-800/40 dark:group-hover:to-purple-800/40 transition-colors duration-300">
                     <Image
                       src={icon}
                       alt={title}
                       width={24}
                       height={24}
-                      className={`w-6 h-6 ${iconDark ? "filter invert" : ""}`}
+                      className={`w-6 h-6 ${
+                        iconDark ? "filter invert dark:invert-0" : ""
+                      }`}
                     />
                   </div>
 
@@ -64,15 +54,19 @@ const AboutMe = () => {
                   <div className="flex-1">
                     <h3
                       className={`font-semibold text-base lg:text-lg mb-2 font-ovo ${
-                        iconDark ? "text-gray-800" : "text-gray-800"
-                      } group-hover:text-darkTheme transition-colors duration-300`}
+                        iconDark
+                          ? "text-gray-800 dark:text-gray-200"
+                          : "text-gray-800 dark:text-gray-200"
+                      } group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300`}
                     >
                       {title}
                     </h3>
                     <p
                       className={`text-xs lg:text-sm leading-relaxed ${
-                        iconDark ? "text-gray-400" : "text-gray-600"
-                      } group-hover:text-gray-700 transition-colors duration-300`}
+                        iconDark
+                          ? "text-gray-400 dark:text-gray-400"
+                          : "text-gray-600 dark:text-gray-400"
+                      } group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300`}
                     >
                       {description}
                     </p>
@@ -84,7 +78,7 @@ const AboutMe = () => {
 
           {/* Tools Section */}
           <div className="mt-12">
-            <h4 className="text-center text-xl font-bold mb-8 font-ovo text-darkTheme">
+            <h4 className="text-center text-xl font-bold mb-8 font-ovo text-darkTheme dark:text-white">
               Tools I Use
             </h4>
 
@@ -93,14 +87,14 @@ const AboutMe = () => {
               {toolsData.map((tool, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-white to-gray-50 rounded-lg p-3 lg:p-4 shadow-sm hover:shadow-md border border-gray-100 hover:border-gray-200 transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-lightHover group hover:rotate-2"
+                  className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 lg:p-4 shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-600 hover:border-gray-200 dark:hover:border-gray-500 transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-lightHover dark:hover:bg-gray-600 group hover:rotate-2"
                 >
                   <div className="flex flex-col items-center text-center space-y-2">
                     {/* Tool Icon */}
-                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-lg shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white dark:bg-gray-600 rounded-lg shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
                       <Image
                         src={tool}
-                        alt=''
+                        alt=""
                         width={20}
                         height={20}
                         className="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300"
@@ -108,7 +102,7 @@ const AboutMe = () => {
                     </div>
 
                     {/* Tool Name */}
-                    <span className="text-xs lg:text-sm font-medium text-gray-700 group-hover:text-darkTheme transition-colors duration-300 leading-tight">
+                    <span className="text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300 leading-tight">
                       {tool.name}
                     </span>
                   </div>
