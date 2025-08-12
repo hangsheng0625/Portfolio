@@ -26,21 +26,22 @@ const AboutMe = () => {
         About Me
       </h2>
 
-      <p className="text-center text-lg lg:text-xl font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
-        Get to know me better through my journey, experience, and technical
-        expertise
-      </p>
-
       <div className="flex flex-col lg:flex-row gap-16 items-start justify-center max-w-7xl mx-auto">
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
-          <p className="text-center text-lg font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
-            I am a passionate web developer with a focus on creating interactive
-            and user-friendly experiences. My journey in web development began
-            with a fascination for how websites work and the technologies behind
-            them. Over the years, I have honed my skills in various programming
-            languages and frameworks, allowing me to build dynamic and
-            responsive web applications.
+          <p className="text-justify text-lg font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
+            Hi! I'm Hang Sheng, a passionate fullstack developer and AI engineer
+            currently pursuing my Bachelor's degree in Computer Science with a
+            specialization in Data Science at Monash University Malaysia (CGPA:
+            3.63/4.0). My journey in technology began with curiosity about how
+            digital solutions can solve real-world problems.
+            <br />
+
+            <br />
+            My passion lies in creating innovative solutions that bridge the gap
+            between complex technology and user-friendly interfaces, whether
+            it's developing AI-powered music generation tools or building
+            scalable web applications with modern frameworks.
           </p>
 
           {/* Info Cards Grid - 3 cards horizontally */}
