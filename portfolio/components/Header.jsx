@@ -19,11 +19,11 @@ const Header = () => {
           {/* Main Profile Image */}
           <div className="relative">
             <Image
-              src={assets.profile_img}
+              src={assets.hangsheng_img}
               alt="Profile Image"
               width={300}
               height={300}
-              className="rounded-2xl mx-auto object-cover"
+              className="rounded-full mx-auto object-cover aspect-square"
               priority
             />
 
@@ -83,14 +83,18 @@ const Header = () => {
             </a>
 
             {/* Subtle glow effect around profile */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl opacity-50 -z-10"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl opacity-50 -z-10"></div>
           </div>
         </div>
 
         {/* Greeting */}
         <h1 className="text-4xl lg:text-5xl font-bold mb-6 font-ovo text-darkTheme dark:text-white leading-tight">
           Hi! I am hangsheng
-          <Image src={assets.hand_icon} className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500" alt=""/>
+          <Image
+            src={assets.hand_icon}
+            className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500"
+            alt=""
+          />
         </h1>
 
         {/* Description */}
