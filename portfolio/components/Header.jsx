@@ -105,10 +105,10 @@ const Header = () => {
           <a
             href="/sample-resume.pdf"
             download
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-500 text-base font-ovo text-darkTheme dark:text-white leading-tight hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-gray-300 dark:border-gray-500 text-sm sm:text-base font-semibold font-ovo text-darkTheme dark:text-white leading-tight hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
           >
             My Resume
-            <Download className="w-5 h-5" />
+            <Download className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
         </div>
       </div>

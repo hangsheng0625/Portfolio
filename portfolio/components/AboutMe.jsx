@@ -98,19 +98,19 @@ const AboutMe = () => {
                   >
                     <div className="flex flex-col lg:flex-row">
                       {/* Category Label */}
-                      <div className="lg:w-1/4 bg-gray-50 dark:bg-gray-900 px-8 py-6 flex items-center">
-                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 text-base lg:text-lg">
+                      <div className="w-full lg:w-1/4 bg-gray-50 dark:bg-gray-900 px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex items-center justify-center lg:justify-start">
+                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-lg text-center lg:text-left">
                           {category}
                         </h4>
                       </div>
 
                       {/* Technologies */}
-                      <div className="lg:w-3/4 px-8 py-6">
-                        <div className="flex flex-wrap gap-4">
+                      <div className="w-full lg:w-3/4 px-4 sm:px-6 lg:px-8 py-4 lg:py-6">
+                        <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4 justify-center lg:justify-start">
                           {technologies.map((tech, techIndex) => (
                             <div
                               key={techIndex}
-                              className="inline-flex items-center gap-3 bg-gray-100 dark:bg-gray-700 px-4 py-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 group cursor-pointer"
+                              className="inline-flex items-center gap-2 sm:gap-3 bg-gray-100 dark:bg-gray-700 px-2 sm:px-3 lg:px-4 py-2 sm:py-2 lg:py-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 group cursor-pointer"
                             >
                               {/* Icon - Handle custom images, simple-icons SVG, and emoji */}
                               {typeof tech.icon === "string" ? (
@@ -151,7 +151,7 @@ const AboutMe = () => {
                                   />
                                 </div>
                               )}
-                              <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
+                              <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
                                 {tech.name}
                               </span>
                             </div>
