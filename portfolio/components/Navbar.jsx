@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Moon,
   Sun,
@@ -20,17 +22,16 @@ import { assets } from "@/assets/assets";
 
 // Navigation links
 const navLinks = [
-  { label: "Home", href: "#top", icon: Home },
-  { label: "About me", href: "#about", icon: User },
-  { label: "My Projects", href: "#projects", icon: FolderOpen },
-  { label: "Contact me", href: "#contact", icon: Mail },
+  { label: "Home", href: "/", icon: Home },
+  { label: "My Blogs", href: "/blogs", icon: User },
+  { label: "My Projects", href: "/projects", icon: FolderOpen },
 ];
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [activeSection, setActiveSection] = useState("top");
+  const pathname = usePathname();
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -48,27 +49,6 @@ const Navbar = () => {
       setIsDarkMode(false);
       document.documentElement.classList.remove("dark");
     }
-  }, []);
-
-  // Track which section is active
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 3;
-
-      let current = "top";
-      navLinks.forEach((link) => {
-        const section = document.querySelector(link.href);
-        if (section && section.offsetTop <= scrollPos) {
-          current = link.href.substring(1);
-        }
-      });
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run on mount
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Toggle theme
@@ -99,11 +79,11 @@ const Navbar = () => {
           {/* Desktop Nav Links - Centered */}
           <ul className="hidden md:flex items-center space-x-10 text-base font-ovo">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = pathname === link.href;
               const IconComponent = link.icon;
               return (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className={`flex items-center gap-2 transition-colors font-semibold ${
                       isActive
@@ -120,7 +100,7 @@ const Navbar = () => {
                   >
                     <IconComponent className="w-4 h-4" />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -173,14 +153,14 @@ const Navbar = () => {
           <div className="py-2">
             <ul>
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const isActive = pathname === link.href;
                 const IconComponent = link.icon;
                 return (
                   <li
                     key={link.href}
                     className="text-center border-b border-white/20 dark:border-white/50 last:border-b-0"
                   >
-                    <a
+                    <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`flex items-center justify-center gap-3 py-4 px-6 transition-colors font-ovo text-lg font-semibold ${
@@ -198,7 +178,7 @@ const Navbar = () => {
                     >
                       <IconComponent className="w-5 h-5" />
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
