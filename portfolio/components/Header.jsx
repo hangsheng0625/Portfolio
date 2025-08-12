@@ -89,18 +89,18 @@ const Header = () => {
         </div>
 
         {/* Greeting */}
-        <h3 className="text-2xl font-bold mb-4 font-ovo text-darkTheme dark:text-white">
+        <h1 className="text-4xl lg:text-5xl font-bold mb-6 font-ovo text-darkTheme dark:text-white leading-tight">
           Hi! I am hangsheng
-          <Hand className="inline-block ml-2 w-6 h-6 text-yellow-500" />
-        </h3>
-
-        {/* Welcome Message */}
-        <h1 className="text-lg mb-4 text-darkTheme dark:text-gray-200">
-          Welcome to my portfolio website.
+          <Hand className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500" />
         </h1>
 
+        {/* Welcome Message */}
+        <h2 className="text-xl lg:text-2xl font-medium mb-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+          Welcome to my portfolio website
+        </h2>
+
         {/* Description */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg lg:text-xl font-light text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
           I am a passionate web developer with a focus on creating interactive
           and user-friendly experiences.
         </p>
@@ -110,10 +110,10 @@ const Header = () => {
           <a
             href="/sample-resume.pdf"
             download
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gray-400 dark:border-gray-600 text-sm font-medium text-neutral-800 dark:text-gray-200 hover:bg-neutral-50 dark:hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-500 text-base font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
           >
             My Resume
-            <Download className="w-4 h-4" />
+            <Download className="w-5 h-5" />
           </a>
         </div>
       </div>

@@ -18,22 +18,22 @@ const SimpleIconSVG = ({ icon, className = "w-5 h-5" }) => {
 
 const AboutMe = () => {
   return (
-    <div className="py-16 px-6 lg:px-10">
-      <h4
+    <div className="py-20 px-6 lg:px-10">
+      <h2
         id="about"
-        className="text-center text-2xl font-bold mb-4 font-ovo text-darkTheme dark:text-white"
+        className="text-center text-4xl lg:text-5xl font-bold mb-4 font-ovo text-darkTheme dark:text-white"
       >
-        Introduction
-      </h4>
-
-      <h2 className="text-center font-ovo text-lg mb-12 text-darkTheme dark:text-gray-200">
         About Me
       </h2>
 
-      <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-6xl mx-auto">
+      <p className="text-center text-lg lg:text-xl font-light text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed">
+        Get to know me better through my journey, experience, and technical expertise
+      </p>
+
+      <div className="flex flex-col lg:flex-row gap-16 items-start justify-center max-w-7xl mx-auto">
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
-          <p className="text-gray-600 dark:text-gray-400 mb-8 text-base leading-relaxed">
+          <p className="text-lg font-light text-gray-700 dark:text-gray-300 mb-12 leading-relaxed text-justify">
             I am a passionate web developer with a focus on creating interactive
             and user-friendly experiences. My journey in web development began
             with a fascination for how websites work and the technologies behind
@@ -65,22 +65,10 @@ const AboutMe = () => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3
-                      className={`font-semibold text-base lg:text-lg mb-2 font-ovo ${
-                        iconDark
-                          ? "text-gray-800 dark:text-gray-200"
-                          : "text-gray-800 dark:text-gray-200"
-                      } group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300`}
-                    >
+                    <h3 className="font-semibold text-lg lg:text-xl mb-3 font-ovo text-gray-800 dark:text-gray-100 group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300">
                       {title}
                     </h3>
-                    <p
-                      className={`text-xs lg:text-sm leading-relaxed ${
-                        iconDark
-                          ? "text-gray-400 dark:text-gray-400"
-                          : "text-gray-600 dark:text-gray-400"
-                      } group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300`}
-                    >
+                    <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
                       {description}
                     </p>
                   </div>
@@ -90,10 +78,10 @@ const AboutMe = () => {
           </div>
 
           {/* Tech Stack Section */}
-          <div className="mt-12">
-            <h4 className="text-center text-2xl font-bold mb-8 font-ovo text-darkTheme dark:text-white">
+          <div className="mt-16">
+            <h3 className="text-center text-3xl lg:text-4xl font-bold mb-12 font-ovo text-darkTheme dark:text-white">
               Tech Stack
-            </h4>
+            </h3>
 
             {/* Tech Stack Table */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
@@ -109,19 +97,19 @@ const AboutMe = () => {
                   >
                     <div className="flex flex-col lg:flex-row">
                       {/* Category Label */}
-                      <div className="lg:w-1/4 bg-gray-50 dark:bg-gray-900 px-6 py-4 flex items-center">
-                        <h5 className="font-semibold text-gray-700 dark:text-gray-300 text-sm lg:text-base">
+                      <div className="lg:w-1/4 bg-gray-50 dark:bg-gray-900 px-8 py-6 flex items-center">
+                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 text-base lg:text-lg">
                           {category}
-                        </h5>
+                        </h4>
                       </div>
 
                       {/* Technologies */}
-                      <div className="lg:w-3/4 px-6 py-4">
-                        <div className="flex flex-wrap gap-3">
+                      <div className="lg:w-3/4 px-8 py-6">
+                        <div className="flex flex-wrap gap-4">
                           {technologies.map((tech, techIndex) => (
                             <div
                               key={techIndex}
-                              className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 group cursor-pointer"
+                              className="inline-flex items-center gap-3 bg-gray-100 dark:bg-gray-700 px-4 py-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 group cursor-pointer"
                             >
                               {/* Icon - Handle custom images, simple-icons SVG, and emoji */}
                               {typeof tech.icon === "string" ? (
@@ -162,7 +150,7 @@ const AboutMe = () => {
                                   />
                                 </div>
                               )}
-                              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
+                              <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
                                 {tech.name}
                               </span>
                             </div>
