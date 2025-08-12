@@ -80,9 +80,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 backdrop-blur-md border-b border-gray-800/50 dark:border-white/10">
+    <nav className="fixed inset-x-0 top-0 z-50 backdrop-blur-md border-b border-gray-800/50 dark:border-white/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-center py-3 w-full">
+        <div className="flex items-center justify-center py-5 w-full">
           {/* Desktop Nav Links - Centered */}
           <ul className="hidden md:flex items-center space-x-10 text-sm font-ovo">
             {navLinks.map((link) => {
@@ -94,12 +94,16 @@ const Navbar = () => {
                     href={link.href}
                     className={`flex items-center gap-2 transition-colors font-semibold ${
                       isActive
-                        ? isDarkMode 
-                          ? "text-white" 
+                        ? isDarkMode
+                          ? "text-white"
                           : "text-black"
-                        : "text-darkTheme dark:text-gray-300 hover:text-neutral-700 dark:hover:text-white font-normal"
+                        : "text-darkTheme dark:text-gray-300 hover:text-white-700 dark:hover:text-white font-normal"
                     }`}
-                    style={isActive ? { color: isDarkMode ? '#ffffff' : '#000000' } : {}}
+                    style={
+                      isActive
+                        ? { color: isDarkMode ? "#ffffff" : "#000000" }
+                        : {}
+                    }
                   >
                     <IconComponent className="w-4 h-4" />
                     {link.label}
@@ -110,7 +114,7 @@ const Navbar = () => {
           </ul>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-4 shrink-0 absolute right-0">
+          <div className="flex items-center gap-4 shrink-0 absolute right-8">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -127,21 +131,6 @@ const Navbar = () => {
                 </>
               )}
             </button>
-
-            {/* Contact Button (Desktop) */}
-            <a
-              href="#contact"
-              className="hidden md:inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-neutral-300 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
-            >
-              CV
-              <Image
-                src={assets.arrow_icon}
-                alt=""
-                width={12}
-                height={12}
-                className="w-3 h-3"
-              />
-            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -164,7 +153,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden bg-white dark:bg-gray-900 dark:bg-gray-900 border-t border-gray-800/50 dark:border-white/10 transition-all duration-300 overflow-hidden ${
+          className={`md:hidden bg-white dark:bg-gray-900 border-t border-gray-800/50 dark:border-white/50 transition-all duration-300 overflow-hidden ${
             isMobileMenuOpen ? "max-h-[500px]" : "max-h-0"
           }`}
         >
@@ -176,19 +165,23 @@ const Navbar = () => {
                 return (
                   <li
                     key={link.href}
-                    className="text-center border-b border-white/20 dark:border-white/10 last:border-b-0"
+                    className="text-center border-b border-white/20 dark:border-white/50 last:border-b-0"
                   >
                     <a
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`flex items-center justify-center gap-3 py-4 px-6 transition-colors font-ovo text-lg font-semibold ${
                         isActive
-                          ? isDarkMode 
-                            ? "text-white" 
+                          ? isDarkMode
+                            ? "text-white"
                             : "text-black"
                           : "text-darkTheme dark:text-gray-300 hover:text-neutral-700 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-gray-800 font-normal"
                       }`}
-                      style={isActive ? { color: isDarkMode ? '#ffffff' : '#000000' } : {}}
+                      style={
+                        isActive
+                          ? { color: isDarkMode ? "#ffffff" : "#000000" }
+                          : {}
+                      }
                     >
                       <IconComponent className="w-5 h-5" />
                       {link.label}
@@ -198,39 +191,7 @@ const Navbar = () => {
               })}
             </ul>
 
-            <div className="border-t border-gray-800/50 dark:border-white/10 mx-6 my-4"></div>
-
-            {/* Mobile Contact Button */}
-            <div className="flex justify-center px-6 pb-4">
-              <a
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-neutral-300 dark:border-gray-600 text-sm font-medium text-neutral-800 dark:text-gray-200 hover:bg-neutral-50 dark:hover:bg-gray-800 transition-colors"
-              >
-                CV
-                {mounted && (
-                  <>
-                    {isDarkMode ? (
-                      <Image
-                        src={assets.arrow_icon_dark}
-                        alt=""
-                        width={12}
-                        height={12}
-                        className="w-3 h-3"
-                      />
-                    ) : (
-                      <Image
-                        src={assets.arrow_icon}
-                        alt=""
-                        width={12}
-                        height={12}
-                        className="w-3 h-3"
-                      />
-                    )}
-                  </>
-                )}
-              </a>
-            </div>
+            <div className="border-t border-gray-800/50 dark:border-white/50 mx-6 my-4"></div>
           </div>
         </div>
       </div>

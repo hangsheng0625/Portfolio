@@ -34,7 +34,7 @@ const AboutMe = () => {
       <div className="flex flex-col lg:flex-row gap-16 items-start justify-center max-w-7xl mx-auto">
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
-          <p className="text-lg font-ovo text-darkTheme dark:text-white mb-12 leading-relaxed text-justify">
+          <p className="text-center text-lg font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
             I am a passionate web developer with a focus on creating interactive
             and user-friendly experiences. My journey in web development began
             with a fascination for how websites work and the technologies behind
