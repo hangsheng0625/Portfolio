@@ -11,9 +11,9 @@ const Projects = () => {
         <h2 className="text-4xl lg:text-5xl font-bold font-ovo text-darkTheme dark:text-white mb-6">
           My Projects
         </h2>
-        <p className="text-lg lg:text-xl font-light text-gray-600 dark:text-gray-400 mb-4 max-w-3xl mx-auto leading-relaxed">
-          Here are some of the projects I've worked on. Each project showcases different
-          technologies and approaches to solve real-world problems.
+        <p className="text-lg lg:text-xl font-ovo text-darkTheme dark:text-white mb-4 max-w-3xl mx-auto leading-relaxed">
+          Here are some of the projects I've worked on. Each project showcases
+          different technologies and approaches to solve real-world problems.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ const Projects = () => {
       <div className="text-center mt-16">
         <button
           className="inline-flex items-center gap-2 px-8 py-3 
-                    font-bold text-black dark:text-white rounded-full border-1 border-grey-400 dark:border-gray-600
+                    font-ovo text-darkTheme dark:text-white leading-tight rounded-full border-1 border-grey-400 dark:border-gray-600
                     shadow-md hover:shadow-lg
                     duration-300 ease-out
                     hover:bg-neutral-50 dark:hover:bg-gray-800 transition-colors

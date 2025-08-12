@@ -26,14 +26,15 @@ const AboutMe = () => {
         About Me
       </h2>
 
-      <p className="text-center text-lg lg:text-xl font-light text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed">
-        Get to know me better through my journey, experience, and technical expertise
+      <p className="text-center text-lg lg:text-xl font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
+        Get to know me better through my journey, experience, and technical
+        expertise
       </p>
 
       <div className="flex flex-col lg:flex-row gap-16 items-start justify-center max-w-7xl mx-auto">
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
-          <p className="text-lg font-light text-gray-700 dark:text-gray-300 mb-12 leading-relaxed text-justify">
+          <p className="text-lg font-ovo text-darkTheme dark:text-white mb-12 leading-relaxed text-justify">
             I am a passionate web developer with a focus on creating interactive
             and user-friendly experiences. My journey in web development began
             with a fascination for how websites work and the technologies behind

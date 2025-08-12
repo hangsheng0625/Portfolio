@@ -12,7 +12,7 @@ const Contact = () => {
           <h2 className="text-4xl lg:text-5xl font-bold font-ovo text-darkTheme dark:text-white mb-6">
             Get In Touch
           </h2>
-          <p className="text-lg lg:text-xl font-light text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl font-ovo text-darkTheme dark:text-white mb-8 max-w-3xl mx-auto leading-relaxed">
             I'm always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions. Let's create something
             amazing together!
