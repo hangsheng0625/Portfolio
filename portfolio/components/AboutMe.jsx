@@ -66,10 +66,10 @@ const AboutMe = () => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-semibold text-lg lg:text-xl mb-3 font-ovo text-gray-800 dark:text-gray-100 group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300">
+                    <h3 className="font-semibold text-lg lg:text-xl mb-3 font-ovo text-white-800 dark:text-gray-100 group-hover:text-darkTheme dark:group-hover:text-white transition-colors duration-300">
                       {title}
                     </h3>
-                    <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                    <p className="text-sm lg:text-base text-lightblue-600 dark:text-lightblue-400 leading-relaxed group-hover:text-lightblue-700 dark:group-hover:text-lightblue-300 transition-colors duration-300">
                       {description}
                     </p>
                   </div>
@@ -85,14 +85,14 @@ const AboutMe = () => {
             </h3>
 
             {/* Tech Stack Table */}
-            <div className="bg-white dark:bg-cardDark rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-white dark:bg-cardDark rounded-2xl shadow-lg border-2 border-gray-300 dark:border-gray-600 overflow-hidden">
               {Object.entries(techStackData).map(
                 ([category, technologies], categoryIndex) => (
                   <div
                     key={category}
                     className={`${
                       categoryIndex !== 0
-                        ? "border-t border-gray-200 dark:border-gray-700"
+                        ? "border-t-3 border-gray-300 dark:border-gray-600"
                         : ""
                     }`}
                   >
@@ -151,7 +151,7 @@ const AboutMe = () => {
                                   />
                                 </div>
                               )}
-                              <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
+                              <span className="text-xs sm:text-sm lg:text-base font-medium text-white-700 dark:text-white-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
                                 {tech.name}
                               </span>
                             </div>

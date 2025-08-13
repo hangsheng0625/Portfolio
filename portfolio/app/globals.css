@@ -1,13 +1,7 @@
 @import "tailwindcss";
 
-/* CSS Variables for theme */
-:root {
-  --card-bg: white;
-}
 
-.dark {
-  --card-bg: #1f2937;
-}
+
 
 /* Base font (Outfit). Individual elements can override with font-ovo */
 body {
@@ -22,9 +16,67 @@ body {
   color: #f9fafb;
 }
 
-/* Force dark mode card backgrounds */
+/* Card backgrounds - Method 2 (Complete Control) */
+.group {
+  background-color: white !important;
+}
+
 .dark .group {
-  background-color: #1f2937 !important;
+  background-color: #FFF4B7 !important;
+}
+
+/* Project title text colors */
+.group h3 {
+  color: #11001F !important; /* darkTheme color for light mode */
+}
+
+.dark .group h3 {
+  color: #444648 !important; /* gray-300 for dark mode */
+}
+
+/* Project description text colors */
+.group p {
+  color: #374151 !important; /* gray-700 for light mode */
+}
+
+.dark .group p {
+  color: #4B5563 !important; /* dark gray for dark mode */
+}
+
+/* Technology tags text colors */
+.group .tech-tag {
+  color: #374151 !important; /* gray-700 for light mode */
+}
+
+.dark .group .tech-tag {
+  color: #4B5563 !important; /* dark gray for dark mode */
+}
+
+/* View Details button and other action text */
+.group .action-text {
+  color: #374151 !important; /* gray-700 for light mode */
+}
+
+.dark .group .action-text {
+  color: #4B5563 !important; /* dark gray for dark mode */
+}
+
+/* Tags/Technologies heading */
+.group h4 {
+  color: #374151 !important; /* gray-700 for light mode */
+}
+
+.dark .group h4 {
+  color: #4B5563 !important; /* dark gray for dark mode */
+}
+
+/* Border lines in cards */
+.group .card-border {
+  border-color: #D1D5DB !important; /* gray-300 for light mode */
+}
+
+.dark .group .card-border {
+  border-color: #4B5563 !important; /* dark gray for dark mode */
 }
 
 /* Floating animation for social icons */

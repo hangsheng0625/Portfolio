@@ -1,17 +1,34 @@
 "use client";
 
 import { workData } from "@/assets/assets";
-import React from "react";
-import { ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { ArrowRight, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Projects = () => {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 4;
+
+  // Calculate pagination
+  const totalPages = Math.ceil(workData.length / projectsPerPage);
+  const startIndex = (currentPage - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const currentProjects = workData.slice(startIndex, endIndex);
 
   const handleProjectClick = (slug) => {
     router.push(`/projects/${slug}`);
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Scroll to projects section when page changes
+    document.getElementById("projects")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -29,10 +46,10 @@ const Projects = () => {
 
       {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {workData.map((project, index) => (
+        {currentProjects.map((project, index) => (
           <div
             key={index}
-            className="group bg-white dark:!bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
+            className="group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
           >
             {/* Image Section */}
             <div className="relative h-48 overflow-hidden">
@@ -50,12 +67,12 @@ const Projects = () => {
             {/* Content Section - Separate from image */}
             <div className="p-8">
               {/* Project Title - Scale on hover */}
-              <h3 className="text-2xl lg:text-3xl font-bold font-ovo text-darkTheme dark:text-white mb-4 group-hover:scale-105 transition-transform duration-300 origin-left">
+              <h3 className="text-lg lg:text-xl font-bold font-ovo text-darkTheme dark:text-gray-300 mb-4 group-hover:scale-105 transition-transform duration-300 origin-left truncate">
                 {project.title}
               </h3>
 
               {/* Project Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-base lg:text-lg leading-relaxed line-clamp-3 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300 mb-6">
+              <p className="text-sm lg:text-base leading-relaxed line-clamp-3 transition-colors duration-300 mb-6">
                 {project.fullDescription ||
                   project.description ||
                   "A comprehensive project showcasing modern web development techniques and user experience design principles."}
@@ -71,94 +88,61 @@ const Projects = () => {
               )}
 
               {/* Tags/Technologies */}
-              <div className="flex flex-wrap gap-3 mt-6">
+              <h4 className="action-text text-sm font-semibold mb-3 mt-6">
+                Tags/Technologies
+              </h4>
+              <div className="flex flex-wrap gap-2 overflow-hidden max-h-8">
                 {project.technologies ? (
-                  project.technologies.slice(0, 4).map((tech, techIndex) => (
+                  project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-lightHover dark:bg-gray-700 text-darkTheme dark:text-gray-200 text-sm font-medium rounded-full border border-purple-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-gray-500 transition-colors duration-200"
+                      className="tech-tag px-2 py-1 bg-lightHover dark:bg-gray-700 text-xs font-medium rounded-full border border-purple-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-gray-500 transition-colors duration-200 whitespace-nowrap"
                     >
                       {tech}
                     </span>
                   ))
                 ) : (
                   <>
-                    <span className="px-3 py-1 bg-lightHover dark:bg-gray-700 text-darkTheme dark:text-gray-200 text-sm font-medium rounded-full border border-purple-200 dark:border-gray-600">
+                    <span className="tech-tag px-2 py-1 bg-lightHover dark:bg-gray-700 text-xs font-medium rounded-full border border-purple-200 dark:border-gray-600">
                       React
                     </span>
-                    <span className="px-3 py-1 bg-lightHover dark:bg-gray-700 text-darkTheme dark:text-gray-200 text-sm font-medium rounded-full border border-purple-200 dark:border-gray-600">
+                    <span className="tech-tag px-2 py-1 bg-lightHover dark:bg-gray-700 text-xs font-medium rounded-full border border-purple-200 dark:border-gray-600">
                       Next.js
                     </span>
-                    <span className="px-3 py-1 bg-lightHover dark:bg-gray-700 text-darkTheme dark:text-gray-200 text-sm font-medium rounded-full border border-purple-200 dark:border-gray-600">
+                    <span className="tech-tag px-2 py-1 bg-lightHover dark:bg-gray-700 text-xs font-medium rounded-full border border-purple-200 dark:border-gray-600">
                       Tailwind
                     </span>
                   </>
                 )}
-                {project.technologies && project.technologies.length > 4 && (
-                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-sm font-medium rounded-full">
-                    +{project.technologies.length - 4} more
+                {project.technologies && project.technologies.length > 3 && (
+                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs font-medium rounded-full">
+                    +{project.technologies.length - 3} more
                   </span>
                 )}
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+              <div className="mt-6 pt-6 border-t card-border">
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => handleProjectClick(project.slug)}
-                    className="inline-flex items-center gap-2 text-darkTheme dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-base transition-colors duration-300 group-hover:gap-3"
+                    className="cursor-pointer action-text inline-flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-base transition-colors duration-300 group-hover:gap-3"
                   >
                     View Details
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
-                  {/* Quick action buttons */}
+                  {/* GitHub link */}
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleProjectClick(project.slug)}
-                      className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-                      title="View Details"
-                    >
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
                     {project.githubLink && (
                       <a
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                        className="p-2 rounded-full border border-gray-600 dark:border-gray-600 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
                         title="View Code"
                       >
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                      </a>
-                    )}
-                    {project.demoLink && (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-                        title="Live Demo"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
+                        <Github className="w-5 h-5" />
                       </a>
                     )}
                   </div>
@@ -169,20 +153,62 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* View All Button */}
-      <div className="text-center mt-16">
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 px-8 py-3 
-                    font-ovo text-darkTheme dark:text-white leading-tight rounded-full border-1 border-grey-400 dark:border-gray-600
-                    shadow-md hover:shadow-lg
-                    duration-300 ease-out
-                    hover:bg-neutral-50 dark:hover:bg-gray-800 transition-colors
-                    cursor-pointer"
-        >
-          View All Projects
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center mt-16 gap-4">
+          {/* Previous Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`p-2 rounded-full border transition-colors duration-300 ${
+              currentPage === 1
+                ? "border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                : "border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+            }`}
+            title="Previous page"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Page Numbers */}
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`w-10 h-10 rounded-full font-medium transition-colors duration-300 ${
+                  currentPage === page
+                    ? "bg-blue-600 text-white"
+                    : "border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`p-2 rounded-full border transition-colors duration-300 ${
+              currentPage === totalPages
+                ? "border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                : "border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+            }`}
+            title="Next page"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      )}
+
+      {/* Projects Count Info */}
+      <div className="text-center mt-6">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Showing {startIndex + 1}-{Math.min(endIndex, workData.length)} of{" "}
+          {workData.length} projects
+        </p>
       </div>
     </section>
   );
