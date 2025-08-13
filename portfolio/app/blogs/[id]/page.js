@@ -8,6 +8,8 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Background from "@/components/Background";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -104,12 +106,40 @@ export default function BlogDetail() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
           {/* Blog Content */}
           <div className="bg-white dark:bg-cardDark rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-gray-100 dark:border-gray-700">
-            <div className="prose prose-base sm:prose-lg dark:prose-invert max-w-none">
-              <div className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                {blog.content ||
-                  blog.excerpt ||
-                  "Blog content would go here..."}
-              </div>
+            <div className="prose prose-base sm:prose-lg dark:prose-invert max-w-none markdown-content">
+              {blog.content ? (
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    h1: ({node, ...props}) => <h1 className="text-3xl font-bold text-darkTheme dark:text-white mb-6 mt-8 first:mt-0" {...props} />,
+                    h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-darkTheme dark:text-white mb-4 mt-6" {...props} />,
+                    h3: ({node, ...props}) => <h3 className="text-xl font-semibold text-darkTheme dark:text-white mb-3 mt-5" {...props} />,
+                    h4: ({node, ...props}) => <h4 className="text-lg font-semibold text-darkTheme dark:text-white mb-2 mt-4" {...props} />,
+                    p: ({node, ...props}) => <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed" {...props} />,
+                    ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300 ml-4" {...props} />,
+                    ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300 ml-4" {...props} />,
+                    li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                    strong: ({node, ...props}) => <strong className="font-semibold text-darkTheme dark:text-white" {...props} />,
+                    em: ({node, ...props}) => <em className="italic text-gray-600 dark:text-gray-400" {...props} />,
+                    code: ({node, inline, ...props}) => 
+                      inline ? (
+                        <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono text-blue-600 dark:text-blue-400" {...props} />
+                      ) : (
+                        <code className="block bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-sm font-mono overflow-x-auto" {...props} />
+                      ),
+                    pre: ({node, ...props}) => <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto" {...props} />,
+                    blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-4" {...props} />,
+                    hr: ({node, ...props}) => <hr className="my-8 border-gray-300 dark:border-gray-600" {...props} />,
+                    a: ({node, ...props}) => <a className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline" {...props} />,
+                  }}
+                >
+                  {blog.content}
+                </ReactMarkdown>
+              ) : (
+                <div className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {blog.excerpt || "Blog content would go here..."}
+                </div>
+              )}
             </div>
 
             {/* Tags Section */}

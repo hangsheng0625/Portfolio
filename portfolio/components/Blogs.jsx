@@ -1,16 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
-import { ArrowRight, Tag } from "lucide-react";
+import { ArrowRight, Tag, ChevronLeft, ChevronRight } from "lucide-react";
 import { blogData } from "@/assets/assets";
 import { useRouter } from "next/navigation";
 
 const Blogs = () => {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 4;
+
+  // Calculate pagination
+  const totalPages = Math.ceil(blogData.length / blogsPerPage);
+  const startIndex = (currentPage - 1) * blogsPerPage;
+  const endIndex = startIndex + blogsPerPage;
+  const currentBlogs = blogData.slice(startIndex, endIndex);
 
   const handleBlogClick = (slug) => {
     router.push(`/blogs/${slug}`);
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Scroll to top of blog section when changing pages
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -28,7 +42,7 @@ const Blogs = () => {
 
       {/* Blog Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-6xl mx-auto">
-        {blogData.map((blog, index) => (
+        {currentBlogs.map((blog, index) => (
           <div
             key={index}
             className="group rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
@@ -78,6 +92,69 @@ const Blogs = () => {
           </div>
         ))}
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center mt-16 gap-2">
+          {/* Previous Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+              currentPage === 1
+                ? "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                : "bg-white dark:bg-gray-700 text-darkTheme dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-600"
+            }`}
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span className="hidden sm:inline">Previous</span>
+          </button>
+
+          {/* Page Numbers */}
+          <div className="flex gap-1">
+            {[...Array(totalPages)].map((_, index) => {
+              const page = index + 1;
+              return (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`w-10 h-10 rounded-lg transition-all duration-300 font-medium ${
+                    currentPage === page
+                      ? "bg-blue-600 text-white shadow-lg"
+                      : "bg-white dark:bg-gray-700 text-darkTheme dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-600"
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+              currentPage === totalPages
+                ? "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                : "bg-white dark:bg-gray-700 text-darkTheme dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-600"
+            }`}
+          >
+            <span className="hidden sm:inline">Next</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      {/* Blog Count Info */}
+      {blogData.length > 0 && (
+        <div className="text-center mt-8">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Showing {startIndex + 1}-{Math.min(endIndex, blogData.length)} of{" "}
+            {blogData.length} blogs
+          </p>
+        </div>
+      )}
     </section>
   );
 };
