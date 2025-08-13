@@ -23,6 +23,7 @@
 # assets folder
 assets/
 
+public/
 # misc
 .DS_Store
 *.pem
