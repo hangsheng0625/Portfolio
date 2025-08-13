@@ -122,6 +122,131 @@ body {
   
 }
 
+/* Force blog content div to stay white and text to stay dark */
+.dark .min-h-screen div[class*="bg-white"] {
+  background-color: white !important;
+}
+
+.dark .min-h-screen div[class*="bg-cardDark"] {
+  background-color: white !important;
+}
+
+/* Blog Detail Page Styling - Force black text in both themes with higher specificity */
+/* Blog content headings - Override Tailwind classes */
+.min-h-screen .markdown-content h1.text-darkTheme,
+.min-h-screen .markdown-content h2.text-darkTheme,
+.min-h-screen .markdown-content h3.text-darkTheme,
+.min-h-screen .markdown-content h4.text-darkTheme {
+  color: #11001F !important; /* darkTheme color for headings */
+}
+
+.dark .min-h-screen .markdown-content h1,
+.dark .min-h-screen .markdown-content h2,
+.dark .min-h-screen .markdown-content h3,
+.dark .min-h-screen .markdown-content h4 {
+  color: #11001F !important; /* Keep same dark color in dark mode */
+}
+
+/* Blog content paragraphs and text - Override Tailwind classes */
+.min-h-screen .markdown-content p.text-gray-700,
+.min-h-screen .markdown-content li,
+.min-h-screen .markdown-content ul,
+.min-h-screen .markdown-content ol {
+  color: #374151 !important; /* gray-700 for body text */
+}
+
+.dark .min-h-screen .markdown-content p,
+.dark .min-h-screen .markdown-content li,
+.dark .min-h-screen .markdown-content ul,
+.dark .min-h-screen .markdown-content ol {
+  color: #374151 !important; /* Keep same gray color in dark mode */
+}
+
+/* Blog content strong/bold text - Override Tailwind classes */
+.min-h-screen .markdown-content strong.font-semibold {
+  color: #11001F !important; /* darkTheme color for bold text */
+}
+
+.dark .min-h-screen .markdown-content strong {
+  color: #11001F !important; /* Keep same color in dark mode */
+}
+
+/* Blog content emphasized text - Override Tailwind classes */
+.min-h-screen .markdown-content em.italic {
+  color: #374151 !important; /* gray-700 for italic text */
+}
+
+.dark .min-h-screen .markdown-content em {
+  color: #374151 !important; /* Keep same color in dark mode */
+}
+
+/* Force all text in markdown content to be dark - Nuclear option */
+.dark .min-h-screen .prose-invert * {
+  color: #374151 !important;
+}
+
+.dark .min-h-screen .prose-invert h1,
+.dark .min-h-screen .prose-invert h2,
+.dark .min-h-screen .prose-invert h3,
+.dark .min-h-screen .prose-invert h4,
+.dark .min-h-screen .prose-invert h5,
+.dark .min-h-screen .prose-invert h6,
+.dark .min-h-screen .prose-invert strong {
+  color: #11001F !important;
+}
+
+/* Override ALL prose dark mode styles for blog content */
+.dark .min-h-screen .prose * {
+  color: #374151 !important;
+}
+
+.dark .min-h-screen .prose h1,
+.dark .min-h-screen .prose h2,
+.dark .min-h-screen .prose h3,
+.dark .min-h-screen .prose h4,
+.dark .min-h-screen .prose strong {
+  color: #11001F !important;
+}
+
+/* Target the specific markdown content container */
+.dark .min-h-screen .markdown-content * {
+  color: #374151 !important;
+}
+
+.dark .min-h-screen .markdown-content h1,
+.dark .min-h-screen .markdown-content h2,
+.dark .min-h-screen .markdown-content h3,
+.dark .min-h-screen .markdown-content h4,
+.dark .min-h-screen .markdown-content strong {
+  color: #11001F !important;
+}
+
+/* Most specific targeting for blog content */
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div * {
+  color: #374151 !important;
+}
+
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div h1,
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div h2,
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div h3,
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div h4,
+.dark div.min-h-screen div.max-w-4xl div.bg-white div.prose div strong {
+  color: #11001F !important;
+}
+
+/* Override Tailwind's prose plugin completely for blog content */
+.dark .prose.markdown-content * {
+  color: #374151 !important;
+}
+
+.dark .prose.markdown-content h1,
+.dark .prose.markdown-content h2, 
+.dark .prose.markdown-content h3,
+.dark .prose.markdown-content h4,
+.dark .prose.markdown-content strong {
+  color: #11001F !important;
+}
+
 /* Navbar specific overrides - ensure mobile menu links are always black when active */
 nav ul li a[style*="color: #000000"] {
   color: #000000 !important;
