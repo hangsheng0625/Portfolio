@@ -18,7 +18,6 @@ import {
   Twitter,
   Download,
 } from "lucide-react";
-import { assets } from "@/assets/assets";
 
 // Navigation links
 const navLinks = [
@@ -163,18 +162,12 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center justify-center gap-3 py-4 px-6 transition-colors font-ovo text-lg font-semibold ${
+                      className={`flex items-center justify-center gap-3 py-4 px-6 transition-colors font-ovo text-lg ${
                         isActive
-                          ? isDarkMode
-                            ? "text-white"
-                            : "text-black"
-                          : "text-darkTheme dark:text-gray-300 hover:text-neutral-700 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-gray-800 font-normal"
+                          ? "text-black font-semibold"
+                          : "text-black font-normal hover:text-gray-700 hover:bg-neutral-50 dark:hover:bg-gray-800"
                       }`}
-                      style={
-                        isActive
-                          ? { color: isDarkMode ? "#ffffff" : "#000000" }
-                          : {}
-                      }
+                      style={{ color: "#000000" }}
                     >
                       <IconComponent className="w-5 h-5" />
                       {link.label}

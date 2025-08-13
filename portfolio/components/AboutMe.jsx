@@ -151,7 +151,7 @@ const AboutMe = () => {
                                   />
                                 </div>
                               )}
-                              <span className="text-xs sm:text-sm lg:text-base font-medium text-white-700 dark:text-white-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
+                              <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
                                 {tech.name}
                               </span>
                             </div>

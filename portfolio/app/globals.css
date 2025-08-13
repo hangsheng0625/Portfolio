@@ -22,7 +22,7 @@ body {
 }
 
 .dark .group {
-  background-color: #FFF4B7 !important;
+  background-color: white !important;
 }
 
 /* Project title text colors */
@@ -88,3 +88,46 @@ body {
     transform: translateY(-15px) rotate(5deg); 
   }
 }
+
+/* Project Detail Page Styling - Consistent colors across themes */
+/* Main headings (Project Overview, Technologies, Key Features, Project Links) */
+.min-h-screen h2,
+.min-h-screen h3 {
+  color: #11001F !important; /* darkTheme color - same as project titles */
+}
+
+.dark .min-h-screen h2,
+.dark .min-h-screen h3 {
+  color: #11001F !important; /* Keep same color in dark mode */
+}
+
+/* Project description and feature text */
+.min-h-screen p,
+.min-h-screen span {
+  color: #374151 !important; /* gray-700 - same as project descriptions */
+}
+
+.dark .min-h-screen p,
+.dark .min-h-screen span {
+  color: #374151 !important; /* Keep same color in dark mode */
+}
+
+/* Project detail page content backgrounds */
+.min-h-screen .bg-white {
+  background-color: white !important;
+}
+
+.dark .min-h-screen .bg-white {
+  background-color: white !important; /* Keep white background in dark mode */
+  
+}
+
+/* Navbar specific overrides - ensure mobile menu links are always black when active */
+nav ul li a[style*="color: #000000"] {
+  color: #000000 !important;
+}
+
+nav .text-black {
+  color: #000000 !important;
+}
+

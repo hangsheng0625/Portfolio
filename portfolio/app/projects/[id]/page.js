@@ -48,71 +48,58 @@ export default function ProjectDetail() {
       <div className="min-h-screen">
         {/* Hero Section with Back Button */}
         <div className="relative">
-          <div className="max-w-6xl mx-auto px-6 lg:px-10 pt-24 pb-16">
-            {/* Back Button - Better positioned and styled */}
-            <div className="mb-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-24 pb-8 sm:pb-16">
+            {/* Back Button - Mobile optimized */}
+            <div className="mb-6 sm:mb-8">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-darkTheme dark:hover:text-white transition-all duration-300 group"
+                className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 text-sm sm:text-base"
               >
-                <div className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-sm group-hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
-                  <ArrowLeft className="w-4 h-4" />
-                </div>
+                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span className="font-medium">Back to Projects</span>
               </Link>
             </div>
 
-            {/* Project Header - Better spacing and hierarchy */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Project Header - Mobile-first responsive layout */}
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 lg:items-center">
               {/* Left Column - Content */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
                 {/* Category Badge */}
                 {project.category && (
-                  <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-full border border-blue-200 dark:border-blue-700">
+                  <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs sm:text-sm font-semibold rounded-full border border-blue-200 dark:border-blue-700">
                     {project.category}
                   </div>
                 )}
 
                 {/* Title */}
-                <h1 className="text-4xl lg:text-6xl font-bold font-ovo text-darkTheme dark:text-white leading-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold font-ovo text-darkTheme dark:text-white leading-tight">
                   {project.title}
                 </h1>
 
                 {/* Description */}
-                <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                <h4 className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
                   {project.description}
-                </p>
+                </h4>
 
-                {/* Action Buttons - Refined styling */}
-                <div className="flex flex-wrap gap-4 pt-4">
-                  {project.githubLink && project.githubLink !== "#" && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-8 py-4 bg-darkTheme dark:bg-gray-700 text-white rounded-xl hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
-                    >
-                      <Github className="w-5 h-5" />
-                      View Code
-                    </a>
-                  )}
+                {/* Action Buttons - Mobile optimized */}
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
                   {project.demoLink && project.demoLink !== "#" && (
                     <a
                       href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-8 py-4 border-2 border-blue-500 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-xl hover:bg-blue-500 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+                      className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border-2 border-blue-500 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-xl hover:bg-blue-500 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl text-sm sm:text-base"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                       Live Demo
                     </a>
                   )}
                 </div>
               </div>
 
-              {/* Right Column - Project Image */}
-              <div className="relative">
-                <div className="relative h-80 lg:h-96 rounded-3xl overflow-hidden shadow-2xl">
+              {/* Right Column - Project Image - Mobile first */}
+              <div className="relative order-1 lg:order-2">
+                <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl lg:shadow-2xl">
                   <Image
                     src={project.bgImage}
                     alt={project.title}
@@ -123,17 +110,17 @@ export default function ProjectDetail() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-xl"></div>
+                {/* Decorative elements - Responsive */}
+                <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-20 sm:h-20 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-10 h-10 sm:w-16 sm:h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-xl"></div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Main Content Section */}
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Main Content - Better spacing and typography */}
             <div className="lg:col-span-2 space-y-8">
               <div className="bg-white dark:bg-cardDark rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
