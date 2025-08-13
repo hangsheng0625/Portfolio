@@ -53,10 +53,9 @@ export default function ProjectDetail() {
             <div className="mb-6 sm:mb-8">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 text-sm sm:text-base"
+              className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"
               >
-                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="font-medium">Back to Projects</span>
+                <ArrowLeft className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"/>
               </Link>
             </div>
 

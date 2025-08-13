@@ -106,7 +106,7 @@ const Header = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/sample-resume.pdf"
+            href="/Liaw-Hang-Sheng-resume.pdf"
             download
             className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-gray-300 dark:border-gray-500 text-sm sm:text-base font-semibold font-ovo text-darkTheme dark:text-white leading-tight hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
           >
