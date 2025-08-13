@@ -21,7 +21,7 @@ const MyServices = () => {
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover dark:hover:bg-gray-700 group"
+            className="bg-white dark:bg-cardDark rounded-xl p-8 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover dark:hover:bg-gray-700 group"
           >
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-lg flex items-center justify-center group-hover:from-blue-100 group-hover:to-purple-100 dark:group-hover:from-blue-800/40 dark:group-hover:to-purple-800/40 transition-colors duration-300">

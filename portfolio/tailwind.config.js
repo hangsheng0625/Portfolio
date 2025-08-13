@@ -11,6 +11,7 @@ module.exports = {
         lightHover: "#fcf4ff",
         darkHover: "#2a004a",
         darkTheme: "#11001F",
+        cardDark: "#181C24",
       },
       fontFamily: {
         outfit: ["Outfit", "sans-serif"], // Remove CSS variables

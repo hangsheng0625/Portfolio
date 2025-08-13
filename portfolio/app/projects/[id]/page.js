@@ -122,7 +122,7 @@ export default function ProjectDetail() {
                   {/* Subtle gradient overlay for depth */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-                
+
                 {/* Decorative elements */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-xl"></div>
@@ -136,7 +136,7 @@ export default function ProjectDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content - Better spacing and typography */}
             <div className="lg:col-span-2 space-y-8">
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
+              <div className="bg-white dark:bg-cardDark rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
                 <h2 className="text-3xl font-bold font-ovo text-darkTheme dark:text-white mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
                   Project Overview
                 </h2>
@@ -173,7 +173,7 @@ export default function ProjectDetail() {
             {/* Sidebar with improved styling */}
             <div className="space-y-8">
               {/* Technologies Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
+              <div className="bg-white dark:bg-cardDark rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
                 <h3 className="text-2xl font-bold font-ovo text-darkTheme dark:text-white mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
                   Technologies
                 </h3>
@@ -191,7 +191,7 @@ export default function ProjectDetail() {
               </div>
 
               {/* Project Links Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
+              <div className="bg-white dark:bg-cardDark rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
                 <h3 className="text-2xl font-bold font-ovo text-darkTheme dark:text-white mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
                   Project Links
                 </h3>

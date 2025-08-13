@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* CSS Variables for theme */
+:root {
+  --card-bg: white;
+}
+
+.dark {
+  --card-bg: #1f2937;
+}
+
 /* Base font (Outfit). Individual elements can override with font-ovo */
 body {
   font-family: var(--font-outfit), sans-serif;
@@ -11,6 +20,11 @@ body {
 /* Dark mode text color */
 .dark body {
   color: #f9fafb;
+}
+
+/* Force dark mode card backgrounds */
+.dark .group {
+  background-color: #1f2937 !important;
 }
 
 /* Floating animation for social icons */

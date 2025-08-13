@@ -32,7 +32,7 @@ const Projects = () => {
         {workData.map((project, index) => (
           <div
             key={index}
-            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
+            className="group bg-white dark:!bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 border border-gray-100 dark:border-gray-700"
           >
             {/* Image Section */}
             <div className="relative h-48 overflow-hidden">
@@ -48,7 +48,7 @@ const Projects = () => {
             </div>
 
             {/* Content Section - Separate from image */}
-            <div className="p-8 bg-white dark:bg-gray-800">
+            <div className="p-8">
               {/* Project Title - Scale on hover */}
               <h3 className="text-2xl lg:text-3xl font-bold font-ovo text-darkTheme dark:text-white mb-4 group-hover:scale-105 transition-transform duration-300 origin-left">
                 {project.title}

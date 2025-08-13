@@ -24,7 +24,7 @@ const Blogs = () => {
           {blogData.map((blog) => (
             <article
               key={blog.id}
-              className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-[1.02] border border-gray-100 dark:border-gray-700"
+              className="group bg-white dark:bg-cardDark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-[1.02] border border-gray-100 dark:border-gray-700"
             >
               {/* Blog Image */}
               <div className="relative h-48 overflow-hidden">
@@ -44,7 +44,7 @@ const Blogs = () => {
                 </div>
 
                 {/* Read More Arrow */}
-                <div className="absolute top-4 right-4 w-8 h-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                <div className="absolute top-4 right-4 w-8 h-8 bg-white/90 dark:bg-cardDark/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                   <ArrowRight className="w-4 h-4 text-darkTheme dark:text-white" />
                 </div>
 

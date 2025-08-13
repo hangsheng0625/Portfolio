@@ -36,7 +36,6 @@ const AboutMe = () => {
             3.63/4.0). My journey in technology began with curiosity about how
             digital solutions can solve real-world problems.
             <br />
-
             <br />
             My passion lies in creating innovative solutions that bridge the gap
             between complex technology and user-friendly interfaces, whether
@@ -49,7 +48,7 @@ const AboutMe = () => {
             {infoList.map(({ icon, iconDark, title, description }, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-6 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover dark:hover:bg-gray-700 group"
+                className="bg-white dark:bg-cardDark rounded-xl p-4 lg:p-6 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-lightHover dark:hover:bg-gray-700 group"
               >
                 <div className="flex flex-col items-center text-center space-y-3">
                   {/* Icon */}
@@ -86,7 +85,7 @@ const AboutMe = () => {
             </h3>
 
             {/* Tech Stack Table */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-white dark:bg-cardDark rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
               {Object.entries(techStackData).map(
                 ([category, technologies], categoryIndex) => (
                   <div
