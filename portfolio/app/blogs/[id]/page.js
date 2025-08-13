@@ -132,7 +132,10 @@ export default function BlogDetail() {
                       />
                     ),
                     li: ({ node, ...props }) => (
-                      <li className="mb-1 text-sm sm:text-base text-gray-700" {...props} />
+                      <li
+                        className="mb-1 text-sm sm:text-base text-gray-700"
+                        {...props}
+                      />
                     ),
                     strong: ({ node, ...props }) => (
                       <strong
