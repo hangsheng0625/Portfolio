@@ -7,7 +7,11 @@ export default function BlogsPage() {
     <>
       <Background />
       <Navbar />
-      <Blogs />
+      <div className="pt-20">
+        {" "}
+        {/* Add padding to account for fixed navbar */}
+        <Blogs />
+      </div>
     </>
   );
 }
