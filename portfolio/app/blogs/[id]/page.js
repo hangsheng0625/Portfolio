@@ -55,11 +55,11 @@ export default function BlogDetail() {
             <div className="mb-4 sm:mb-6 md:mb-8">
               <Link
                 href="/blogs"
-                className="inline-flex items-center gap-2 text-darkTheme dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200 text-sm sm:text-base"
+                className="inline-flex items-center gap-2 text-darkTheme dark:text-white hover:text-white-600 dark:hover:text-white-400 font-medium transition-colors duration-200 text-sm sm:text-base"
               >
                 <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="hidden xs:inline">Back to Blogs</span>
-                <span className="xs:hidden">Back</span>
+                <span className="hidden xs:inline"></span>
+                <span className="xs:hidden"></span>
               </Link>
             </div>
 
@@ -218,11 +218,11 @@ export default function BlogDetail() {
           <div className="mt-6 sm:mt-8 md:mt-12">
             <Link
               href="/blogs"
-              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors duration-200 text-sm sm:text-base"
+              className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-white-800 dark:hover:text-white-300 font-medium transition-colors duration-200 text-sm sm:text-base"
             >
               <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden xs:inline">Back to all blogs</span>
-              <span className="xs:hidden">Back to blogs</span>
+              <span className="hidden xs:inline"></span>
+              <span className="xs:hidden"></span>
             </Link>
           </div>
         </div>

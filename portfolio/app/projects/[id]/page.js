@@ -31,9 +31,9 @@ export default function ProjectDetail() {
             </h1>
             <Link
               href="/projects"
-              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              className="text-white-600 hover:text-white-800 dark:text-white-400 dark:hover:text-white-300"
             >
-              Back to Projects
+              
             </Link>
           </div>
         </div>
@@ -53,9 +53,9 @@ export default function ProjectDetail() {
             <div className="mb-6 sm:mb-8">
               <Link
                 href="/projects"
-              className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-white-700 dark:hover:text-white-300 font-medium transition-colors duration-200"
               >
-                <ArrowLeft className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"/>
+                <ArrowLeft className="inline-flex items-center gap-2 text-white-600 dark:text-white-400 hover:text-white-700 dark:hover:text-white-300 font-medium transition-colors duration-200"/>
               </Link>
             </div>
 
