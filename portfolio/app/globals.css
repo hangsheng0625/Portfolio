@@ -256,6 +256,41 @@ nav .text-black {
   color: #000000 !important;
 }
 
+/* Navbar mobile menu icon colors - force correct colors */
+nav button svg {
+  color: inherit !important;
+}
+
+.dark nav button .text-black {
+  color: #ffffff !important;
+}
+
+.dark nav button svg.text-black {
+  color: #ffffff !important;
+}
+
+nav button svg.text-black {
+  color: #000000 !important;
+}
+
+/* Navbar border colors - ensure correct colors */
+nav.border-black {
+  border-color: #000000 !important;
+}
+
+.dark nav.border-black {
+  border-color: #ffffff !important;
+}
+
+/* Alternative targeting for navbar border */
+nav[class*="border-black"] {
+  border-color: #000000 !important;
+}
+
+.dark nav[class*="border-black"] {
+  border-color: #ffffff !important;
+}
+
 /* Markdown Content Styling */
 .markdown-content {
   line-height: 1.7;

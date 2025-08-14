@@ -72,7 +72,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 backdrop-blur-md border-b border-gray-800/50 dark:border-white/50">
+    <nav className="fixed inset-x-0 top-0 z-50 backdrop-blur-md border-b border-black dark:border-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-center py-5 w-full">
           {/* Desktop Nav Links - Centered */}
@@ -134,9 +134,9 @@ const Navbar = () => {
               className="p-2 hover:bg-neutral-100 dark:hover:bg-gray-700 rounded-full md:hidden transition-colors"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5 text-neutral-700 dark:text-gray-300" />
+                <X className="w-5 h-5 text-black dark:text-white" />
               ) : (
-                <Menu className="w-5 h-5 text-neutral-700 dark:text-gray-300" />
+                <Menu className="w-5 h-5 text-black dark:text-white" />
               )}
             </button>
           </div>
@@ -145,7 +145,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden bg-white dark:bg-gray-900 border-t border-gray-800/50 dark:border-white/50 transition-all duration-300 overflow-hidden ${
+          className={`md:hidden bg-white dark:bg-gray-900 transition-all duration-300 overflow-hidden ${
             isMobileMenuOpen ? "max-h-[500px]" : "max-h-0"
           }`}
         >
@@ -176,8 +176,6 @@ const Navbar = () => {
                 );
               })}
             </ul>
-
-            <div className="border-t border-gray-800/50 dark:border-white/50 mx-6 my-4"></div>
           </div>
         </div>
       </div>
