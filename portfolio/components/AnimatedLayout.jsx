@@ -8,7 +8,9 @@ export default function AnimatedLayout({ children }) {
 
   return (
     <AnimatePresence mode="wait" initial={false}>
-      {children}
+      <div key={pathname}>
+        {children}
+      </div>
     </AnimatePresence>
   );
 }
