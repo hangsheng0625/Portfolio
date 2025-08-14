@@ -1,35 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "portfolio/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "distDir": ".next"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/blogs/([^/]+)",
-      "dest": "/blogs/$1"
-    },
-    {
-      "src": "/projects/([^/]+)",
-      "dest": "/projects/$1"
-    },
-    {
-      "src": "/blog",
-      "status": 301,
-      "headers": {
-        "Location": "/blogs"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -53,24 +23,6 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/public/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control", 
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
       "source": "/_next/static/(.*)",
       "headers": [
         {
@@ -80,7 +32,11 @@
       ]
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/blogs",
+      "permanent": true
+    }
+  ]
 }
