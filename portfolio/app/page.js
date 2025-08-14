@@ -4,16 +4,19 @@ import Header from "@/components/Header";
 import AboutMe from "@/components/AboutMe";
 import MyServices from "@/components/MyServices";
 import Contact from "@/components/Contact";
+import PageTransition from "@/components/PageTransition";
 
 export default function Home() {
   return (
     <>
       <Background />
       <Navbar />
-      <Header />
-      <AboutMe />
-      {/* <MyServices /> */}
-      <Contact />
+      <PageTransition>
+        <Header />
+        <AboutMe />
+        {/* <MyServices /> */}
+        <Contact />
+      </PageTransition>
     </>
   );
 }

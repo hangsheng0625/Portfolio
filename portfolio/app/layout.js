@@ -1,5 +1,6 @@
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
+import AnimatedLayout from "@/components/AnimatedLayout";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfit.variable} ${ovo.variable} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme`}
       >
-        {children}
+        <AnimatedLayout>{children}</AnimatedLayout>
       </body>
     </html>
   );

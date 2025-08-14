@@ -1,17 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Background from "@/components/Background";
 import Projects from "@/components/Projects";
+import PageTransition from "@/components/PageTransition";
 
 export default function ProjectsPage() {
   return (
     <>
       <Background />
       <Navbar />
-      <div className="pt-20">
-        {" "}
-        {/* Add padding to account for fixed navbar */}
-        <Projects />
-      </div>
+      <PageTransition>
+        <div className="pt-20">
+          {/* Add padding to account for fixed navbar */}
+          <Projects />
+        </div>
+      </PageTransition>
     </>
   );
 }

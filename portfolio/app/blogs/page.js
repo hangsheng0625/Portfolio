@@ -1,17 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Background from "@/components/Background";
 import Blogs from "@/components/Blogs";
+import PageTransition from "@/components/PageTransition";
 
 export default function BlogsPage() {
   return (
     <>
       <Background />
       <Navbar />
-      <div className="pt-20">
-        {" "}
-        {/* Add padding to account for fixed navbar */}
-        <Blogs />
-      </div>
+      <PageTransition>
+        <div className="pt-20">
+          {/* Add padding to account for fixed navbar */}
+          <Blogs />
+        </div>
+      </PageTransition>
     </>
   );
 }
