@@ -1,14 +1,15 @@
 {
   "version": 2,
   "name": "portfolio",
-  "buildCommand": "cd portfolio && npm run build",
-  "outputDirectory": "portfolio/.next",
-  "devCommand": "cd portfolio && npm run dev",
-  "installCommand": "cd portfolio && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "framework": "nextjs",
+  "rootDirectory": "portfolio",
   "regions": ["iad1"],
   "functions": {
-    "portfolio/app/**/*.js": {
+    "app/**/*.js": {
       "runtime": "nodejs18.x"
     }
   },
