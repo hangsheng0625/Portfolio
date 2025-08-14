@@ -1,25 +1,33 @@
 {
   "version": 2,
-  "name": "portfolio",
-  "buildCommand": "cd portfolio && npm run build",
-  "outputDirectory": "portfolio/.next",
-  "devCommand": "cd portfolio && npm run dev", 
-  "installCommand": "cd portfolio && npm install",
-  "framework": null,
-  "regions": ["iad1"],
-  "functions": {
-    "portfolio/app/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/blogs/:slug",
-      "destination": "/blogs/:slug"
+      "src": "portfolio/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "distDir": ".next"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/blogs/([^/]+)",
+      "dest": "/blogs/$1"
     },
     {
-      "source": "/projects/:slug", 
-      "destination": "/projects/:slug"
+      "src": "/projects/([^/]+)",
+      "dest": "/projects/$1"
+    },
+    {
+      "src": "/blog",
+      "status": 301,
+      "headers": {
+        "Location": "/blogs"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ],
   "headers": [
@@ -72,15 +80,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/blog",
-      "destination": "/blogs",
-      "permanent": true
-    }
-  ],
-  "trailingSlash": false,
-  "cleanUrls": true,
   "env": {
     "NODE_ENV": "production"
   }
