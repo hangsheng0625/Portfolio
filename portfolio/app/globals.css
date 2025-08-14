@@ -3,9 +3,9 @@
 
 
 
-/* Base font (Outfit). Individual elements can override with font-ovo */
+/* Base font (Times New Roman). Individual elements can override with font-ovo or font-outfit */
 body {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   padding: 0;
   transition: color 0.3s ease;

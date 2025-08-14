@@ -14,8 +14,12 @@ module.exports = {
         cardDark: "#181C24",
       },
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"], // Remove CSS variables
-        ovo: ["Ovo", "serif"], // Use direct font names
+        // Set Times New Roman as default font family
+        sans: ['"Times New Roman"', "Times", "serif"],
+        serif: ['"Times New Roman"', "Times", "serif"],
+        // Keep custom fonts for specific use if needed
+        outfit: ["Outfit", "sans-serif"],
+        ovo: ["Ovo", "serif"],
       },
       boxShadow: {
         black: "4px 4px 0 #000",
