@@ -89,7 +89,7 @@ const Header = () => {
 
         {/* Greeting */}
         <h1 className="text-4xl lg:text-5xl font-bold mb-6 font-ovo text-darkTheme dark:text-white leading-tight">
-          Hi! I am hangsheng
+          Hi! I am Liaw Hang Sheng
           <Image
             src={assets.hand_icon}
             className="inline-block ml-3 w-8 h-8 lg:w-10 lg:h-10 text-yellow-500"
@@ -99,14 +99,13 @@ const Header = () => {
 
         {/* Description */}
         <p className="text-lg lg:text-xl font-ovo text-darkTheme dark:text-white max-w-2xl mx-auto leading-relaxed mb-12">
-          I am a passionate web developer with a focus on creating interactive
-          and user-friendly experiences.
+          A fresh graduate from Monash that has strong interest in artificial intelligence and machine learning applications, particularly in developing full-stack solutions that integrate AI models for real-world problems..
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/Liaw-Hang-Sheng-resume.pdf"
+            href="/Liaw-Hang-Sheng-FlowCV-Resume-20250815.pdf"
             download
             className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-gray-300 dark:border-gray-500 text-sm sm:text-base font-semibold font-ovo text-darkTheme dark:text-white leading-tight hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
           >

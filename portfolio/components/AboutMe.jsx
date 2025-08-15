@@ -30,17 +30,19 @@ const AboutMe = () => {
         {/* Content Section */}
         <div className="flex-1 lg:w-2/3">
           <p className="text-justify text-lg font-ovo text-darkTheme dark:text-white mb-16 max-w-3xl mx-auto leading-relaxed">
-            Hi! I'm Hang Sheng, a passionate fullstack developer and AI engineer
-            currently pursuing my Bachelor's degree in Computer Science with a
-            specialization in Data Science at Monash University Malaysia (CGPA:
-            3.63/4.0). My journey in technology began with curiosity about how
-            digital solutions can solve real-world problems.
+            Hi! I'm Hang Sheng, a caffeine-powered fullstack developer and AI
+            engineer who recently escaped—I mean graduated from—Monash
+            University Malaysia with a Computer Science degree. My love affair
+            with technology started when I realized computers don't judge you
+            for talking to them at 3 AM (unlike humans). <br />
             <br />
-            <br />
-            My passion lies in creating innovative solutions that bridge the gap
-            between complex technology and user-friendly interfaces, whether
-            it's developing AI-powered music generation tools or building
-            scalable web applications with modern frameworks.
+            Through my coding adventures and occasional debugging nightmares,
+            I've discovered that the magic happens when you make complex tech
+            feel as simple as ordering your favorite bubble tea. I'm passionate
+            about creating digital solutions that make people think "Wow, this
+            actually makes my life easier!" instead of "Wait, how does this
+            work?" My mission? To bridge the gap between intimidating technology
+            and delightful user experiences.{" "}
           </p>
 
           {/* Info Cards Grid - 3 cards horizontally */}

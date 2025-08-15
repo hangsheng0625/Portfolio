@@ -78,6 +78,45 @@ export const assets = {
 
 export const workData = [
   {
+    title: "Multimodal Video Sentiment & Emotion Analysis SaaS",
+    slug: "multimodal-video-sentiment",
+    description:
+      "End-to-end Multimodal Emotion & Sentiment Classification System",
+    fullDescription:
+      "Built a full-stack AI system for sentiment and emotion recognition from conversational videos using the MELD dataset. Developed a multimodal deep learning model in PyTorch that fuses text (BERT), audio (CNN), and video (R3D-18) features. Automated feature extraction with Whisper, torchaudio, and OpenCV. Trained and validated the model on MELD, then deployed it as a scalable REST API using AWS SageMaker Endpoints and S3. Created a SaaS platform with Next.js, React, Tailwind CSS, and Auth.js, allowing users to upload videos and receive real-time predictions. Implemented user quota management and cloud resource monitoring for robust, production-ready service.",
+    bgImage: "/Multimodal-Video-Sentiment.png",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "HuggingFace Transformers",
+      "torchaudio",
+      "OpenCV",
+      "Whisper",
+      "AWS SageMaker",
+      "S3",
+      "boto3",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Auth.js",
+      "TypeScript",
+    ],
+    category: "Deep Learning / Full Stack",
+    demoLink: "#",
+    githubLink:
+      "https://github.com/hangsheng0625/video-sentiment-analysis-model",
+    features: [
+      "Multimodal fusion of text, audio, and video features for robust classification",
+      "Automated feature extraction: Whisper for speech-to-text, OpenCV for video frames, torchaudio for audio spectrograms",
+      "Trained and evaluated on the MELD (Multimodal EmotionLines Dataset)",
+      "Deployed as a scalable REST API using AWS SageMaker Endpoints",
+      "SaaS platform with Next.js, React, Tailwind CSS, and Auth.js for user authentication and video upload",
+      "Real-time inference and batch processing support",
+      "User quota management and cloud resource monitoring",
+      "Production-ready, end-to-end AI solution for video sentiment and emotion analysis",
+    ],
+  },
+  {
     title: "TheTrendyClub - E-Commerce Platform",
     slug: "thetrendyclub",
     description: "Full Stack E-Commerce Web Application",
@@ -142,6 +181,79 @@ export const workData = [
       "Usage-based access control for free and premium users",
     ],
   },
+  
+  {
+    title: "Audio-CNN - Environmental Sound Classification",
+    slug: "audio-cnn",
+    description: "Deep Learning Audio Classification System",
+    fullDescription:
+      "Developed an end-to-end deep learning system for environmental sound classification using a custom ResNet-based CNN. Leveraged PyTorch, torchaudio, and librosa for data processing and model training on the ESC-50 dataset. Integrated Modal for scalable cloud training and FastAPI for real-time inference. Built a Next.js web interface for interactive audio upload, classification, and feature visualization. Achieved high accuracy and robust performance with advanced data augmentation and experiment tracking.",
+    bgImage: "/Audio-CNN.png",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "torchaudio",
+      "librosa",
+      "Modal",
+      "FastAPI",
+      "TensorBoard",
+      "Node.js",
+      "Next.js",
+      "React",
+      "TypeScript",
+    ],
+    category: "Deep Learning / Full Stack",
+    demoLink: "#",
+    githubLink: "https://github.com/hangsheng0625/Audio-CNN",
+    features: [
+      "Custom ResNet-based CNN for audio spectrogram classification",
+      "Automated data preprocessing and augmentation (SpecAugment, mixup)",
+      "Distributed cloud training with GPU acceleration via Modal",
+      "Real-time inference API with FastAPI",
+      "Interactive Next.js web interface for audio upload and visualization",
+      "Feature map and waveform visualization",
+      "Experiment tracking and model monitoring with TensorBoard",
+      "Achieved 85%+ accuracy on ESC-50 dataset",
+    ],
+  },
+  {
+    title: "AWAS Real-time Speed Enforcement System",
+    slug: "awas-speed-enforcement-system",
+    description:
+      "Point-to-Point Average Speed Monitoring with Big Data Streaming",
+    fullDescription:
+      "Developed a comprehensive real-time streaming system simulating Malaysia's Automated Awareness Safety System (AWAS) for highway speed enforcement. Built multiple Kafka producers to simulate camera events from highway checkpoints, processing thousands of vehicle readings per minute. Implemented stateful stream-to-stream joins using Apache Spark Structured Streaming to match vehicles between camera pairs and calculate average speeds over known distances. Engineered exactly-once processing with watermarking to handle out-of-order events and prevent duplicate violation records. Integrated MongoDB for scalable storage of both raw camera events and processed violation data. Created data visualization dashboards to monitor real-time traffic patterns and enforcement metrics. The system addresses real-world limitations of traditional point-capture speed cameras by calculating average speeds between checkpoints, preventing drivers from gaming the system.",
+    bgImage: "/awas-speed-enforcement.png",
+    technologies: [
+      "Python",
+      "Apache Kafka",
+      "Apache Spark",
+      "Spark Structured Streaming",
+      "MongoDB",
+      "Pandas",
+      "Jupyter Notebook",
+      "Docker",
+      "kafka-python",
+      "pymongo",
+      "pyspark",
+      "Data Visualization",
+      "Stream Processing",
+    ],
+    category: "Big Data / Stream Processing",
+    demoLink: "#",
+    githubLink: "#",
+    features: [
+      "Multi-producer Kafka streaming architecture simulating real highway camera networks",
+      "Stateful stream-to-stream joins for vehicle tracking across checkpoint pairs",
+      "Real-time average speed calculation over 1-5km highway segments",
+      "Exactly-once processing with watermarking for out-of-order event handling",
+      "Automated violation detection for speeds exceeding 110 km/h on expressways",
+      "Scalable MongoDB storage for high-volume event data and violation records",
+      "Batch processing simulation with configurable time intervals (5-second batches)",
+      "Data visualization dashboards for traffic monitoring and enforcement analytics",
+      "Fault-tolerant architecture handling thousands of events per minute during peak hours",
+    ],
+  },
   {
     title: "JamMaster - AI Music Generator",
     slug: "jammaster",
@@ -172,13 +284,14 @@ export const workData = [
       "Advanced audio rendering capabilities",
     ],
   },
+
   {
     title: "Static Factory - Survival Game",
     slug: "static-factory",
     description: "Text-Based Rogue-like Survival Game",
     fullDescription:
       "Developed a rogue-like survival game using Object-Oriented Programming principles in Java. Applied advanced OOP concepts including encapsulation, inheritance, and polymorphism to create an immersive gaming experience with dynamic environments and interactive elements.",
-    bgImage: "/work-4.png",
+    bgImage: "/static-factory.png",
     technologies: [
       "Java",
       "Object-Oriented Programming",
@@ -264,6 +377,9 @@ export const techStackData = {
     { name: "AWS", icon: "☁️" }, // Need aws.png
     { name: "Google Cloud", icon: "🌐" }, // Need gcp.png
     { name: "Docker", icon: "🐳" }, // Need docker.png
+    { name: "Apache Kafka", icon: "🔄" }, // Data flow/streaming
+    { name: "Apache Spark", icon: "⚡" }, // Lightning bolt for speed
+    { name: "Tableau", icon: "📊" }, // Bar chart for data visualization
   ],
 };
 
@@ -278,9 +394,11 @@ export const blogData = [
   {
     id: 1,
     slug: "building-aetherai-fullstack-ai-saas-platform",
-    title: "Building AetherAI: My Journey Creating a Full-Stack AI SaaS Platform",
-    excerpt: "A comprehensive walkthrough of developing AetherAI, a production-ready SaaS platform integrating multiple AI models, cloud services, and modern web technologies.",
-  content: `# Building AetherAI: From Concept to Production
+    title:
+      "Building AetherAI: My Journey Creating a Full-Stack AI SaaS Platform",
+    excerpt:
+      "A comprehensive walkthrough of developing AetherAI, a production-ready SaaS platform integrating multiple AI models, cloud services, and modern web technologies.",
+    content: `# Building AetherAI: From Concept to Production
 
 ## The Vision
 When I set out to build AetherAI, I wanted to create more than just another AI tool. My goal was to develop a comprehensive SaaS platform that would harness multiple AI models and cloud services to provide users with cutting-edge artificial intelligence capabilities for content creation, image manipulation, and document analysis.
@@ -529,19 +647,34 @@ Creating intuitive interfaces for complex AI functionalities with proper loading
 Building AetherAI taught me the complexities of integrating multiple AI services into a cohesive SaaS platform. The project required mastering full-stack development, cloud services integration, and modern deployment strategies. The result is a production-ready application that demonstrates the power of combining cutting-edge AI technologies with solid software engineering practices.
 
 The most valuable learning was understanding how to architect a scalable system that can grow with user needs while maintaining security, performance, and user experience standards. This project serves as a foundation for future AI-driven applications and showcases the possibilities when modern web technologies meet artificial intelligence.`,
-  category: "Technology",
-  author: "hangsheng",
-  date: "2025-08-13",
-  readTime: "15 min read",
-  image: "/AetherAI.png",
-  tags: ["React", "Node.js", "AI", "SaaS", "Full-Stack", "Gemini", "ClipDrop", "Cloudinary", "Tailwind CSS", "PostgreSQL", "Vercel", "Clerk"],
-},
-{
-  id: 5,
-  slug: "building-thetrendyclub-fullstack-ecommerce-platform",
-  title: "Building TheTrendyClub: My Journey Creating a Full-Stack E-commerce Platform with Admin Panel",
-  excerpt: "A comprehensive walkthrough of developing TheTrendyClub, a production-ready e-commerce platform with React frontend, Node.js backend, and dedicated admin panel for inventory management.",
-  content: `# Building TheTrendyClub: From Concept to Production
+    category: "Technology",
+    author: "hangsheng",
+    date: "2025-08-13",
+    readTime: "15 min read",
+    image: "/AetherAI.png",
+    tags: [
+      "React",
+      "Node.js",
+      "AI",
+      "SaaS",
+      "Full-Stack",
+      "Gemini",
+      "ClipDrop",
+      "Cloudinary",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Vercel",
+      "Clerk",
+    ],
+  },
+  {
+    id: 5,
+    slug: "building-thetrendyclub-fullstack-ecommerce-platform",
+    title:
+      "Building TheTrendyClub: My Journey Creating a Full-Stack E-commerce Platform with Admin Panel",
+    excerpt:
+      "A comprehensive walkthrough of developing TheTrendyClub, a production-ready e-commerce platform with React frontend, Node.js backend, and dedicated admin panel for inventory management.",
+    content: `# Building TheTrendyClub: From Concept to Production
 
 ## The Vision
 When I embarked on creating TheTrendyClub, my goal was ambitious: build a complete e-commerce ecosystem that would rival modern platforms like Shopify or Amazon. I wanted to create not just a customer-facing store, but a comprehensive business solution with inventory management, order processing, and seamless payment integration.
@@ -1255,6 +1388,6 @@ The most valuable learning was understanding how modern e-commerce platforms wor
 
 This project demonstrates the complexity of building production-ready e-commerce solutions and showcases the power of modern web technologies when properly architected. The result is a fully functional platform that can handle real-world business operations while providing excellent user experiences across all touchpoints.
 
-The admin panel's responsive design and intuitive interface make inventory management effortless, while the customer platform provides a smooth shopping experience comparable to major e-commerce sites. This project serves as a testament to the possibilities when combining solid engineering principles with modern web development practices.`
-}
+The admin panel's responsive design and intuitive interface make inventory management effortless, while the customer platform provides a smooth shopping experience comparable to major e-commerce sites. This project serves as a testament to the possibilities when combining solid engineering principles with modern web development practices.`,
+  },
 ];
